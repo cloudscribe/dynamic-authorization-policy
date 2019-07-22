@@ -1,0 +1,28 @@
+﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.ClaimRequirementViewModel
+@inject IStringLocalizer<PolicyResources> sr
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>@sr["New Claim Requirement"]</h4>
+        <form asp-action="NewClaimRequirement">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="PolicyId" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="ClaimName" class="control-label">@sr["Claim Name"]</label>
+                <input asp-for="ClaimName" class="form-control" />
+                <span asp-validation-for="ClaimName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedValuesCsv" class="control-label">@sr["Allowed Values Csv (leave blank if any value is allowed)"]</label>
+                <input asp-for="AllowedValuesCsv" class="form-control" />
+                <span asp-validation-for="AllowedValuesCsv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">@sr["Add Claim Requirement"]</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

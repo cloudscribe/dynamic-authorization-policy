@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Models", "cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj", "{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.CoreIntegration", "cloudscribe.DynamicPolicy.CoreIntegration\cloudscribe.DynamicPolicy.CoreIntegration.csproj", "{0822212F-A244-4EA1-B44C-DF71CB9D19B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.Common", "cloudscribe.DynamicPolicy.Storage.EFCore.Common\cloudscribe.DynamicPolicy.Storage.EFCore.Common.csproj", "{CFF3F786-DF69-47AC-8C8B-6EF9279B1D25}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL", "cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL\cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL.csproj", "{96C9161D-9583-4831-BCBD-4A6F9E74A450}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.MySql", "cloudscribe.DynamicPolicy.Storage.EFCore.MySql\cloudscribe.DynamicPolicy.Storage.EFCore.MySql.csproj", "{461C9BBF-F937-4A3E-80BF-5FBB83FCE130}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.SQLite", "cloudscribe.DynamicPolicy.Storage.EFCore.SQLite\cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.csproj", "{80CFAB93-70CB-40D0-B2F2-F2E67BAC53CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Mvc", "cloudscribe.DynamicPolicy.Web.Mvc\cloudscribe.DynamicPolicy.Web.Mvc.csproj", "{19A8AAE3-1057-41D6-8FF3-F69584350871}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Views.Bootstrap3", "cloudscribe.DynamicPolicy.Web.Views.Bootstrap3\cloudscribe.DynamicPolicy.Web.Views.Bootstrap3.csproj", "{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.NoDb", "cloudscribe.DynamicPolicy.Storage.NoDb\cloudscribe.DynamicPolicy.Storage.NoDb.csproj", "{229D5892-7B92-49D3-A143-54EF952532A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicAuthPolicyDemo.Web", "DynamicAuthPolicyDemo.Web\DynamicAuthPolicyDemo.Web.csproj", "{3071C651-7596-4478-8E71-79DD12B8E1DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Views.Bootstrap4", "cloudscribe.DynamicPolicy.Web.Views.Bootstrap4\cloudscribe.DynamicPolicy.Web.Views.Bootstrap4.csproj", "{38673275-257B-4236-95D5-FC1B78E7B032}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribeDemo.Web", "cloudscribeDemo.Web\cloudscribeDemo.Web.csproj", "{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql", "cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql\cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.csproj", "{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0822212F-A244-4EA1-B44C-DF71CB9D19B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0822212F-A244-4EA1-B44C-DF71CB9D19B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0822212F-A244-4EA1-B44C-DF71CB9D19B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0822212F-A244-4EA1-B44C-DF71CB9D19B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF3F786-DF69-47AC-8C8B-6EF9279B1D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF3F786-DF69-47AC-8C8B-6EF9279B1D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF3F786-DF69-47AC-8C8B-6EF9279B1D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF3F786-DF69-47AC-8C8B-6EF9279B1D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96C9161D-9583-4831-BCBD-4A6F9E74A450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C9161D-9583-4831-BCBD-4A6F9E74A450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C9161D-9583-4831-BCBD-4A6F9E74A450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C9161D-9583-4831-BCBD-4A6F9E74A450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461C9BBF-F937-4A3E-80BF-5FBB83FCE130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461C9BBF-F937-4A3E-80BF-5FBB83FCE130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461C9BBF-F937-4A3E-80BF-5FBB83FCE130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461C9BBF-F937-4A3E-80BF-5FBB83FCE130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80CFAB93-70CB-40D0-B2F2-F2E67BAC53CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CFAB93-70CB-40D0-B2F2-F2E67BAC53CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CFAB93-70CB-40D0-B2F2-F2E67BAC53CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CFAB93-70CB-40D0-B2F2-F2E67BAC53CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229D5892-7B92-49D3-A143-54EF952532A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229D5892-7B92-49D3-A143-54EF952532A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229D5892-7B92-49D3-A143-54EF952532A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229D5892-7B92-49D3-A143-54EF952532A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38673275-257B-4236-95D5-FC1B78E7B032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38673275-257B-4236-95D5-FC1B78E7B032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38673275-257B-4236-95D5-FC1B78E7B032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38673275-257B-4236-95D5-FC1B78E7B032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0589BA07-049B-4C71-AF22-8EB1E74E1912}
+	EndGlobalSection
+EndGlobal

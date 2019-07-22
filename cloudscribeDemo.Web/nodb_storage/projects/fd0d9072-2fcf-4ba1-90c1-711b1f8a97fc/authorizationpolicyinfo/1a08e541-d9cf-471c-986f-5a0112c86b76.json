@@ -1,0 +1,1 @@
+{"Id":"1a08e541-d9cf-471c-986f-5a0112c86b76","TenantId":"fd0d9072-2fcf-4ba1-90c1-711b1f8a97fc","Name":"SystemLogPolicy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":["Administrators"],"AuthenticationSchemes":[],"RequiredClaims":[]}

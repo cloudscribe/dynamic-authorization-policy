@@ -1,0 +1,1 @@
+{"Id":"99314c2c-a646-4416-b606-0c7b56e3f7f6","TenantId":"fd0d9072-2fcf-4ba1-90c1-711b1f8a97fc","Name":"AdminPolicy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":["Administrators"],"AuthenticationSchemes":[],"RequiredClaims":[]}

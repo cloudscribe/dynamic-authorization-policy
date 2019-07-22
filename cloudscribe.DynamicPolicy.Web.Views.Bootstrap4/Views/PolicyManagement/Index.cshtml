@@ -1,0 +1,112 @@
+﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.PolicyListViewModel
+@inject IStringLocalizer<PolicyResources> sr
+@{
+    ViewData["Title"] = sr["Authorization Policies"];
+}
+
+@functions{
+    public string GetDescription(AuthorizationPolicyInfo item)
+    {
+        if (!string.IsNullOrEmpty(item.RequiredUserName))
+        {
+            var format = sr["Only {0} is allowed"];
+            return string.Format(CultureInfo.CurrentUICulture, format, item.RequiredUserName);
+        }
+
+        string result = "";
+        var roleCount = item.AllowedRoles.Count;
+        if(roleCount > 0)
+        {
+            var format = sr["Allowed roles: {0}"];
+            result += string.Format(CultureInfo.CurrentUICulture, format, string.Join(",",item.AllowedRoles));
+
+        }
+        var claimCount = item.RequiredClaims.Count;
+        if(claimCount > 0)
+        {
+            result += sr[" Has Claim Requirements"];
+        }
+
+        if(!string.IsNullOrEmpty(result))
+        {
+            return result;
+        }
+
+
+
+        if(item.RequireAuthenticatedUser)
+        {
+            return sr["Requires authenticated user"];
+        }
+
+
+        return sr["Allows anonymous access"];
+    }
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form class="form-inline mb-3" role="form" asp-controller="PolicyManagement" asp-action="Index" method="get" asp-antiforgery="false">
+    <a class="btn btn-outline-primary mr-2" asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New"]</a>
+    <div class="input-group">
+        <input asp-for="Q" name="q" class="form-control" />
+        <span class="input-group-btn">
+            <button type="submit" value='@sr["Search"]' class="btn btn-primary">@sr["Search"]</button>
+        </span>
+    </div>
+</form>
+
+<table class="table table-striped mb-2">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @sr["Name"]
+            </th>
+            <th>
+                @sr["Requirements"]
+            </th>
+            <th>
+                @sr["Notes"]
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Policies.Data)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-controller="PolicyManagement" asp-action="EditPolicy" asp-route-id="@item.Id">@sr["Edit"]</a>
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @GetDescription(item)
+                </td>
+                <td>
+                    @item.Notes
+                </td>
+                 
+            </tr>
+        }
+    </tbody>
+</table>
+
+<cs-pager asp-action="Index" asp-controller="PolicyManagement"
+          asp-route-q="@Model.Q"
+          asp-route-pagesize="@Model.Policies.PageSize"
+          cs-paging-pagesize="@Model.Policies.PageSize"
+          cs-paging-pagenumber="@Model.Policies.PageNumber"
+          cs-paging-totalitems="@Model.Policies.TotalItems"
+          cs-first-page-title='@sr["First Page"]'
+          cs-last-page-title='@sr["Last Page"]'
+          cs-previous-page-title='@sr["Previous page"]'
+          cs-next-page-title='@sr["Next page"]'
+          cs-pager-ul-class="pagination d-flex flex-wrap"
+          cs-pager-li-current-class="page-item active"
+          cs-pager-li-other-class="page-item"
+          cs-pager-li-non-active-class="page-item disabled"
+          cs-pager-link-current-class="page-link"
+          cs-pager-link-other-class="page-link"></cs-pager>
+

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>SQLite Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
+    <VersionPrefix>2.1.9</VersionPrefix>
+    <AssemblyVersion>2.1.9</AssemblyVersion>
+    <Authors>Joe Audette</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/joeaudette/cloudscribe</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj" />
+    <ProjectReference Include="..\cloudscribe.DynamicPolicy.Storage.EFCore.Common\cloudscribe.DynamicPolicy.Storage.EFCore.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cloudscribe.Versioning" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
+  </ItemGroup>
+
+</Project>

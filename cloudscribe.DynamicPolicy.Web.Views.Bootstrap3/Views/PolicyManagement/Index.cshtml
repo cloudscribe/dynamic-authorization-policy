@@ -1,0 +1,49 @@
+﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.PolicyListViewModel
+@inject IStringLocalizer< PolicyResources> sr
+@{
+    ViewData["Title"] = sr["Authorization Policies"];
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New"]</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Policies.Data)
+        {
+            <tr>
+
+                <td>
+                    @item.Name
+                </td>
+
+                <td>
+                    <a asp-controller="PolicyManagement" asp-action="EditPolicy" asp-route-id="@item.Id">@sr["Edit"]</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <cs-pager asp-action="Index" asp-controller="PolicyManagement"
+              asp-route-pagesize="@Model.Policies.PageSize"
+              cs-paging-pagesize="@Model.Policies.PageSize"
+              cs-paging-pagenumber="@Model.Policies.PageNumber"
+              cs-paging-totalitems="@Model.Policies.TotalItems"
+              cs-first-page-title='@sr["First Page"]'
+              cs-last-page-title='@sr["Last Page"]'
+              cs-previous-page-title='@sr["Previous page"]'
+              cs-next-page-title='@sr["Next page"]'></cs-pager>
+</div>

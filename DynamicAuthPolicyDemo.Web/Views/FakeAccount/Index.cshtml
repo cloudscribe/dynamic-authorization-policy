@@ -1,0 +1,63 @@
+﻿
+@{
+    
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<form asp-controller="FakeAccount" asp-action="Login" method="post" class="form-horizontal" role="form">
+    <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+    <div class="form-group">
+        <label class="col-md-2 control-label">Select User </label>
+        <div class="col-md-10">
+            <select id="userName" name="userName" class="form-control">
+                <option value="Administrator">Administrator</option>
+                <option value="Member">Member</option>
+                <option value="Minion">Minion</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">Log in</button>
+        </div>
+    </div>
+    
+</form>
+<table class="table table-striped">
+    <thead>Test Account Information</thead>
+    <tr>
+        <th>User</th>
+        <th>Roles</th>
+        <th>Claims</th>
+    </tr>
+    <tr>
+        <td>Administrator</td>
+        <td>Admins</td>
+        <td>
+            Team:Management <br />
+            ClearanceCode:alpha
+        </td>
+    </tr>
+    <tr>
+        <td>Member</td>
+        <td>
+            Members
+        </td>
+        <td>
+            Team:Marketing <br />
+            ClearanceCode:beta
+        </td>
+    </tr>
+    <tr>
+        <td>Minion</td>
+        <td>
+            Minions
+        </td>
+        <td>
+            Team:Kitchen
+        </td>
+    </tr>
+</table>
+
+

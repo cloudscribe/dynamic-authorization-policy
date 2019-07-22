@@ -1,0 +1,140 @@
+﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.PolicyEditViewModel
+@using Microsoft.Extensions.Options
+@inject IRoleSelectorProperties roleSelector
+@inject IStringLocalizer<PolicyResources> sr
+@inject IOptions<cloudscribe.DynamicPolicy.Models.PolicyManagementOptions> optionsAccesor
+@{
+    var titleFormat = sr["Edit Policy - {0}"];
+    ViewData["Title"] = string.Format(titleFormat, Model.Name);
+    var prompt = string.Format(sr["Are you sure you want to delete the policy {0}? You cannot undo this action. If the policy name is in use then it will be recreated automatically if automatic policy creation is enabled."], String.Join("", Model.Name.Where(c => char.IsPunctuation(c) == false)));
+    var options = optionsAccesor.Value;
+    var hasAnyRequirements = Model.RequireAuthenticatedUser || Model.RequiredClaims.Any() || !string.IsNullOrWhiteSpace(Model.RequiredUserName) || !string.IsNullOrWhiteSpace(Model.AllowedRolesCsv);
+
+}
+
+<h2>@ViewData["Title"]</h2>
+@if(!hasAnyRequirements)
+{
+    <p class="alert alert-warning">
+        @sr["This policy has no requirements therefore it allows anonymous access. If this is not intended please add one or more requirements."]
+    </p>
+}
+    <form asp-controller="PolicyManagement" asp-action="EditPolicy" data-submit-once="true">
+        <input asp-for="Id" type="hidden" />
+        @if (options.ShowRequireAuthenticatedUserOption)
+        {
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="RequireAuthenticatedUser" class="form-check-input" />
+                    <label asp-for="RequireAuthenticatedUser" class="form-check-label"> @sr["Require Authenticated User"]</label>
+                </div>
+            </div>
+        }
+        else
+        {
+            <input name="RequireAuthenticatedUser" value="false" type="hidden" />
+        }
+        <div class="form-group">
+            <p>@sr["Note that roles use OR logic, a user only has to be in any one of the allowed roles to meet the policy requirement."]</p>
+            <label asp-for="AllowedRolesCsv">@sr["Allowed Roles (comma separated values)"]</label>
+            <input asp-for="AllowedRolesCsv" class="form-control" />
+            <span asp-validation-for="AllowedRolesCsv" class="invalid-feedback"></span>
+            <a class="btn btn-primary mt-2"
+               cdp-role-selector="@roleSelector"
+               cdp-tenant-id="@Model.TenantId"
+               cdp-target-id="AllowedRolesCsv">@sr["Select Roles"]</a>
+        </div>
+        @if (options.ShowAuthenticationSchemeOptions)
+        {
+            <div class="form-group">
+                <label asp-for="AuthenticationSchemesCsv">@sr["Authentication Schemes (comma separated values, leave blank for all)"]</label>
+                <input asp-for="AuthenticationSchemesCsv" class="form-control" />
+                <span asp-validation-for="AuthenticationSchemesCsv" class="invalid-feedback"></span>
+            </div>
+        }
+        else
+        {
+            <input name="AuthenticationSchemesCsv" value="" type="hidden" />
+        }
+        @if (options.ShowRequiredUserNameOption)
+        {
+            <div class="form-group">
+                <label asp-for="RequiredUserName">@sr["Required User Name"]</label>
+                <input asp-for="RequiredUserName" class="form-control" />
+                <span asp-validation-for="RequiredUserName" class="invalid-feedback"></span>
+            </div>
+        }
+        else
+        {
+            <input name="RequiredUserName" value="" type="hidden" />
+        }
+
+        <div class="form-group">
+            <label asp-for="Notes">@sr["Notes"]</label>
+            <textarea asp-for="Notes" class="form-control"></textarea>
+            <span asp-validation-for="Notes" class="invalid-feedback"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" data-disabled-text='@sr["Working..."]' data-enabled-text='@sr["Save"]'>@sr["Save"]</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal">
+                @sr["Delete"]
+            </button>
+        </div>
+    </form>
+@if (options.ShowClaimRequirementOptions)
+{
+    <h4>Required Claims</h4>
+    <p>@sr["Note that claims use AND logic, if you require claims, the user must have all the required claims to meet the policy requirement."]</p>
+    if (Model.RequiredClaims.Count > 0)
+    {
+        @foreach (var cm in Model.RequiredClaims)
+        {
+            await Html.RenderPartialAsync("EditClaimRequirement", cm);
+            <hr />
+
+        }
+    }
+    await Html.RenderPartialAsync("NewClaimRequirement", new ClaimRequirementViewModel(Model.Id));
+}
+
+
+<form id="deletePolicyForm" class="form-inline" asp-controller="PolicyManagement" asp-action="DeletePolicy">
+    <a class="btn btn-default" asp-action="Index">@sr["Back to List"]</a>
+    <input asp-for="Id" type="hidden" />
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteHeading">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="confirmDeleteHeading">@sr["Confirm Delete"]</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label='@sr["Close"]'><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    @prompt
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">@sr["Cancel"]</button>
+                    <input type="submit" value='@sr["Delete"]' class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+@section Scripts {
+
+    @{ await Html.RenderPartialAsync("_UnobtrusiveValidationScriptsPartial"); }
+    <script src="~/cr/js/unobtrusive-validation-bs4.min.js"></script>
+    <script src="~/cr/js/jquery.validate.hooks.min.js"></script>
+    <script src="~/cr/js/jqueryvaildation.submitonce-unobtrusive.min.js"></script>
+    @if (roleSelector.RequiredScriptPaths != null)
+    {
+        foreach (var s in roleSelector.RequiredScriptPaths)
+        {
+            <script src="@Url.Content(s)"></script>
+        }
+    }
+}

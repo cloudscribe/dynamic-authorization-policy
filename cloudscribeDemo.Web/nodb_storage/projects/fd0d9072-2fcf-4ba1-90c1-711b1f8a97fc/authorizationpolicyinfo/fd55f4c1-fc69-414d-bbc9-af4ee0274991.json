@@ -1,0 +1,1 @@
+{"Id":"fd55f4c1-fc69-414d-bbc9-af4ee0274991","TenantId":"fd0d9072-2fcf-4ba1-90c1-711b1f8a97fc","Name":"RoleLookupPolicy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":["Administrators","Content Administrators","Role Administrators"],"AuthenticationSchemes":[],"RequiredClaims":[]}

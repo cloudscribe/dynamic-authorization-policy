@@ -1,0 +1,1 @@
+{"Id":"0d9e0074-ad35-48aa-a2d7-ed9f92fa39ec","TenantId":"fd0d9072-2fcf-4ba1-90c1-711b1f8a97fc","Name":"BlogEditPolicy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":["Administrators"],"AuthenticationSchemes":[],"RequiredClaims":[]}

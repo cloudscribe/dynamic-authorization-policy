@@ -1,0 +1,56 @@
+﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.ClaimRequirementViewModel
+@inject IStringLocalizer<PolicyResources> sr
+@{
+    var deleteFormId = "deleteForm" + String.Join("", Model.ClaimName.Where(c => char.IsLetterOrDigit(c)));
+    var prompt = string.Format(sr["Are you sure you want to delete the claim requirement for {0}? You cannot undo this action."], String.Join("", Model.ClaimName.Where(c => char.IsPunctuation(c) == false)));
+}
+<div class="row">
+    <div class="col-md-12">
+
+        <form asp-action="EditClaimRequirement">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="PolicyId" type="hidden" />
+            <input asp-for="ClaimName" type="hidden" />
+            <div class="form-group">
+                <label class="control-label">@sr["Claim Name"]</label>
+                <label class="form-control">@Model.ClaimName</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedValuesCsv" class="control-label">@sr["Allowed Values Csv (leave blank if any value is allowed)"]</label>
+                <input asp-for="AllowedValuesCsv" class="form-control" />
+                <span asp-validation-for="AllowedValuesCsv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">@sr["Save"]</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@("#" + deleteFormId + "confirmDeleteModal")">
+                    @sr["Delete"]
+                </button>
+            </div>
+        </form>
+        <form id="@Html.Encode(deleteFormId)" class="form-inline" asp-action="DeleteClaimRequirement">
+            <input name="policyId" type="hidden" value="@Model.PolicyId" />
+            <input name="claimName" type="hidden" value="@Model.ClaimName" />
+            <div class="modal fade" id="@(deleteFormId + "confirmDeleteModal")" tabindex="-1" role="dialog" aria-labelledby="@(deleteFormId + "confirmDeleteHeading")">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label='@sr["Close"]'><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="@(deleteFormId + "confirmDeleteHeading")">@sr["Confirm Delete"]</h4>
+                        </div>
+                        <div class="modal-body">
+                            @prompt
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">@sr["Cancel"]</button>
+                            <input type="submit" value='@sr["Delete"]' class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+

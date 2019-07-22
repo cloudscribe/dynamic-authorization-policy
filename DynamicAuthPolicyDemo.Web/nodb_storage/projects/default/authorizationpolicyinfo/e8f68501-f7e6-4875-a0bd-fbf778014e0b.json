@@ -1,0 +1,1 @@
+{"Id":"e8f68501-f7e6-4875-a0bd-fbf778014e0b","TenantId":"default","Name":"FooPolicy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":[],"AuthenticationSchemes":[],"RequiredClaims":[{"ClaimName":"Foo","AllowedValues":["bar","baz","boo","foo"]},{"ClaimName":"Pepper","AllowedValues":["tellicherry"]}]}

@@ -1,0 +1,1 @@
+{"Id":"496ab6b0-3951-4edb-bfdf-9519e60f3562","TenantId":"default","Name":"Contact Policy","RequireAuthenticatedUser":false,"RequiredUserName":null,"AllowedRoles":["Admins"],"AuthenticationSchemes":[],"RequiredClaims":[]}
