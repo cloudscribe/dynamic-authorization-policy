@@ -73,18 +73,30 @@ namespace cloudscribe.DynamicPolicy.Services
 
                 if (_policyOptions.AutoCreateMissingPolicies)
                 {
-                    var allowedRoles = _policyOptions.AutoPolicyAllowedRoleNamesCsv.Split(',');
-
                     //initialize policy in the data storage
                     var newPolicy = new AuthorizationPolicyInfo();
                     newPolicy.Name = policyName;
-                    var roleList = new List<string>(allowedRoles);
-                    newPolicy.AllowedRoles = roleList;
-                    await policyService.CreatePolicy(newPolicy);
 
-                    policy = new AuthorizationPolicyBuilder()
-                        .RequireRole(allowedRoles)
-                        .Build();
+                    if (_policyOptions.PolicyNamesToConfigureAsAllowAnonymous.Contains(policyName))
+                    {
+                        await policyService.CreatePolicy(newPolicy);
+                        return newPolicy.ToAuthPolicy();
+                    }
+                    else
+                    {
+                        var allowedRoles = _policyOptions.AutoPolicyAllowedRoleNamesCsv.Split(',');
+
+
+                        var roleList = new List<string>(allowedRoles);
+                        newPolicy.AllowedRoles = roleList;
+                        await policyService.CreatePolicy(newPolicy);
+
+                        policy = new AuthorizationPolicyBuilder()
+                            .RequireRole(allowedRoles)
+                            .Build();
+                    }
+
+                    
 
                     var logger = _contextAccessor.HttpContext.RequestServices.GetService<ILogger<DynamicAuthorizationPolicyProvider>>();
                     logger.LogWarning($"policy named {policyName} was missing so auto creating it with default allowed roles");
