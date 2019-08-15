@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Source Tree Solutions, LLC. All rights reserved.
 // Author:					Joe Audette
 // Created:					2018-01-01
-// Last Modified:			2018-01-02
+// Last Modified:			2019-07-31
 // 
 
 using Microsoft.AspNetCore.Authorization;
@@ -82,11 +82,16 @@ namespace cloudscribe.DynamicPolicy.Services
                         await policyService.CreatePolicy(newPolicy);
                         return newPolicy.ToAuthPolicy();
                     }
+                    else if(_policyOptions.PolicyNamesToConfigureAsAnyAuthenticatedUser.Contains(policyName))
+                    {
+                        newPolicy.RequireAuthenticatedUser = true;
+                        await policyService.CreatePolicy(newPolicy);
+                        return newPolicy.ToAuthPolicy();
+                    }
                     else
                     {
                         var allowedRoles = _policyOptions.AutoPolicyAllowedRoleNamesCsv.Split(',');
-
-
+                        
                         var roleList = new List<string>(allowedRoles);
                         newPolicy.AllowedRoles = roleList;
                         await policyService.CreatePolicy(newPolicy);
@@ -95,9 +100,7 @@ namespace cloudscribe.DynamicPolicy.Services
                             .RequireRole(allowedRoles)
                             .Build();
                     }
-
                     
-
                     var logger = _contextAccessor.HttpContext.RequestServices.GetService<ILogger<DynamicAuthorizationPolicyProvider>>();
                     logger.LogWarning($"policy named {policyName} was missing so auto creating it with default allowed roles");
 

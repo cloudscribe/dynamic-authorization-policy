@@ -96,7 +96,9 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name");
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.HasIndex("TenantId");
 

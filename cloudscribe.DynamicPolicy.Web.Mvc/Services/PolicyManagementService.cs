@@ -57,16 +57,7 @@ namespace cloudscribe.DynamicPolicy.Services
         {
             cancellationToken.ThrowIfCancellationRequested();
             var result = await _queries.GetPage(_tenantProvider.GetTenantId(), query, pageNumber, pageSize, cancellationToken).ConfigureAwait(false);
-
-            //if(!_lm.IA())
-            //{
-            //    var a = new AuthorizationPolicyInfo();
-            //    a.Name = $"This site is using a trial version of Dynamic Authorization Policies. {_lm.GetAu()}";
-
-
-            //    result.Data.Add(a);
-            //}
-
+            
             return result;
 
         }
@@ -77,7 +68,17 @@ namespace cloudscribe.DynamicPolicy.Services
         {
             if (policy == null) { throw new ArgumentException("policy cannot be null"); }
             policy.TenantId = _tenantProvider.GetTenantId();
-            await _commands.Create(policy, cancellationToken).ConfigureAwait(false);
+            try
+            {
+                await _commands.Create(policy, cancellationToken).ConfigureAwait(false);
+            }
+            catch(Exception ex)
+            {
+                // if a policy is auto created it can happen that multipl request threads try to create the missing policy
+                // a unique constraint error would happen so catching the possible error
+                _log.LogError($"handled error {ex.Message}:{ex.StackTrace}");
+            }
+            
 
             return new PolicyOperationResult(true);
         }
