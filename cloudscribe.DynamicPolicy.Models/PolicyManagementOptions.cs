@@ -7,6 +7,7 @@ namespace cloudscribe.DynamicPolicy.Models
         public PolicyManagementOptions()
         {
             PolicyNamesToConfigureAsAllowAnonymous = new List<string>();
+            PolicyNamesToConfigureAsAnyAuthenticatedUser = new List<string>();
         }
 
         public bool AutoCreateMissingPolicies { get; set; } = true;
@@ -19,5 +20,7 @@ namespace cloudscribe.DynamicPolicy.Models
         public bool ShowClaimRequirementOptions { get; set; }
 
         public List<string> PolicyNamesToConfigureAsAllowAnonymous { get; set; }
+
+        public List<string> PolicyNamesToConfigureAsAnyAuthenticatedUser { get; set; }
     }
 }

@@ -94,7 +94,8 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name");
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("TenantId");
 

@@ -119,6 +119,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.Migrations
                         .HasName("pk_csp_auth_policy");
 
                     b.HasIndex("Name")
+                        .IsUnique()
                         .HasName("ix_csp_auth_policy_name");
 
                     b.HasIndex("TenantId")

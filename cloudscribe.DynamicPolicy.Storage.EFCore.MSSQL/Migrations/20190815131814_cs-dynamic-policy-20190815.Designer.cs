@@ -2,19 +2,24 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using cloudscribe.DynamicPolicy.Storage.EFCore.SQLite;
+using cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL;
 
-namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
+namespace cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL.Migrations
 {
     [DbContext(typeof(DynamicPolicyDbContext))]
-    partial class DynamicPolicyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190815131814_cs-dynamic-policy-20190815")]
+    partial class csdynamicpolicy20190815
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099");
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AllowedClaimValueEntity", b =>
                 {
@@ -94,7 +99,8 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Name")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.HasIndex("TenantId");
 

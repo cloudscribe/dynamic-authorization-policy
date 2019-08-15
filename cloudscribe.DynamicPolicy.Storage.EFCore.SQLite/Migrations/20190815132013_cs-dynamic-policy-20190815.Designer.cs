@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cloudscribe.DynamicPolicy.Storage.EFCore.SQLite;
 
 namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
 {
     [DbContext(typeof(DynamicPolicyDbContext))]
-    partial class DynamicPolicyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190815132013_cs-dynamic-policy-20190815")]
+    partial class csdynamicpolicy20190815
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

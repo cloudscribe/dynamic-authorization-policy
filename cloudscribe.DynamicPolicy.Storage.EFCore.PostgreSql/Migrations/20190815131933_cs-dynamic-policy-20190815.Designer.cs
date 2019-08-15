@@ -2,122 +2,156 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using cloudscribe.DynamicPolicy.Storage.EFCore.SQLite;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql;
 
-namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
+namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.Migrations
 {
     [DbContext(typeof(DynamicPolicyDbContext))]
-    partial class DynamicPolicyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190815131933_cs-dynamic-policy-20190815")]
+    partial class csdynamicpolicy20190815
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099");
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AllowedClaimValueEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
 
                     b.Property<string>("AllowedValue")
                         .IsRequired()
+                        .HasColumnName("allowed_value")
                         .HasMaxLength(255);
 
                     b.Property<Guid?>("ClaimRequirementId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("claim_requirement_id");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_csp_auth_policy_claim_value");
 
-                    b.HasIndex("ClaimRequirementId");
+                    b.HasIndex("ClaimRequirementId")
+                        .HasName("ix_csp_auth_policy_claim_value_claim_requirement_id");
 
-                    b.ToTable("csp_AuthPolicyClaimValue");
+                    b.ToTable("csp_auth_policy_claim_value");
                 });
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AllowedRoleEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
 
                     b.Property<string>("AllowedRole")
                         .IsRequired()
+                        .HasColumnName("allowed_role")
                         .HasMaxLength(200);
 
                     b.Property<Guid?>("PolicyId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("policy_id");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_csp_auth_policy_role");
 
-                    b.HasIndex("PolicyId");
+                    b.HasIndex("PolicyId")
+                        .HasName("ix_csp_auth_policy_role_policy_id");
 
-                    b.ToTable("csp_AuthPolicyRole");
+                    b.ToTable("csp_auth_policy_role");
                 });
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AuthenticationSchemeEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
 
                     b.Property<string>("AuthenticationScheme")
                         .IsRequired()
+                        .HasColumnName("authentication_scheme")
                         .HasMaxLength(255);
 
                     b.Property<Guid?>("PolicyId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("policy_id");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_csp_auth_policy_scheme");
 
-                    b.HasIndex("PolicyId");
+                    b.HasIndex("PolicyId")
+                        .HasName("ix_csp_auth_policy_scheme_policy_id");
 
-                    b.ToTable("csp_AuthPolicyScheme");
+                    b.ToTable("csp_auth_policy_scheme");
                 });
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AuthorizationPolicyEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
 
                     b.Property<string>("Name")
+                        .HasColumnName("name")
                         .HasMaxLength(200);
 
-                    b.Property<string>("Notes");
+                    b.Property<string>("Notes")
+                        .HasColumnName("notes");
 
-                    b.Property<bool>("RequireAuthenticatedUser");
+                    b.Property<bool>("RequireAuthenticatedUser")
+                        .HasColumnName("require_authenticated_user");
 
-                    b.Property<string>("RequiredUserName");
+                    b.Property<string>("RequiredUserName")
+                        .HasColumnName("required_user_name");
 
                     b.Property<string>("TenantId")
                         .IsRequired()
+                        .HasColumnName("tenant_id")
                         .HasMaxLength(36);
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_csp_auth_policy");
 
                     b.HasIndex("Name")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasName("ix_csp_auth_policy_name");
 
-                    b.HasIndex("TenantId");
+                    b.HasIndex("TenantId")
+                        .HasName("ix_csp_auth_policy_tenant_id");
 
-                    b.ToTable("csp_AuthPolicy");
+                    b.ToTable("csp_auth_policy");
                 });
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.ClaimRequirementEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
 
                     b.Property<string>("ClaimName")
                         .IsRequired()
+                        .HasColumnName("claim_name")
                         .HasMaxLength(255);
 
                     b.Property<Guid?>("PolicyId")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnName("policy_id");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_csp_auth_policy_claim");
 
-                    b.HasIndex("PolicyId");
+                    b.HasIndex("PolicyId")
+                        .HasName("ix_csp_auth_policy_claim_policy_id");
 
-                    b.ToTable("csp_AuthPolicyClaim");
+                    b.ToTable("csp_auth_policy_claim");
                 });
 
             modelBuilder.Entity("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AllowedClaimValueEntity", b =>
@@ -125,6 +159,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
                     b.HasOne("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.ClaimRequirementEntity", "ClaimRequirement")
                         .WithMany("AllowedValues")
                         .HasForeignKey("ClaimRequirementId")
+                        .HasConstraintName("fk_csp_auth_policy_claim_value_csp_auth_policy_claim_claim_requi~")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -133,6 +168,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
                     b.HasOne("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AuthorizationPolicyEntity", "Policy")
                         .WithMany("AllowedRoles")
                         .HasForeignKey("PolicyId")
+                        .HasConstraintName("fk_csp_auth_policy_role_csp_auth_policy_policy_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -141,6 +177,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
                     b.HasOne("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AuthorizationPolicyEntity", "Policy")
                         .WithMany("AuthenticationSchemes")
                         .HasForeignKey("PolicyId")
+                        .HasConstraintName("fk_csp_auth_policy_scheme_csp_auth_policy_policy_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -149,6 +186,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
                     b.HasOne("cloudscribe.DynamicPolicy.Storage.EFCore.Common.Entities.AuthorizationPolicyEntity", "Policy")
                         .WithMany("RequiredClaims")
                         .HasForeignKey("PolicyId")
+                        .HasConstraintName("fk_csp_auth_policy_claim_csp_auth_policy_policy_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
