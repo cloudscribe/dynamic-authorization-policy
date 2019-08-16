@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -6,7 +8,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection SetupDataStorage(
             this IServiceCollection services,
-            IConfiguration config
+            IConfiguration config,
+            IHostingEnvironment env
             )
         {
             var storage = config["DevOptions:DbPlatform"];
@@ -41,7 +44,13 @@ namespace Microsoft.Extensions.DependencyInjection
                     switch (efProvider)
                     {
                         case "sqlite":
-                            var slConnection = config.GetConnectionString("SQLiteEntityFrameworkConnectionString");
+                            //var slConnection = config.GetConnectionString("SQLiteEntityFrameworkConnectionString");
+
+                            var dbName = config.GetConnectionString("SQLiteDbName");
+                            var dbPath = Path.Combine(env.ContentRootPath, dbName);
+                            var slConnection = $"Data Source={dbPath}";
+
+
                             services.AddCloudscribeCoreEFStorageSQLite(slConnection);
                             services.AddCloudscribeLoggingEFStorageSQLite(slConnection);
                             services.AddCloudscribeSimpleContentEFStorageSQLite(slConnection);

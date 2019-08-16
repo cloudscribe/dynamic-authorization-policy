@@ -93,10 +93,10 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.HasIndex("TenantId");
+
+                    b.HasIndex("Name", "TenantId")
+                        .IsUnique();
 
                     b.ToTable("csp_AuthPolicy");
                 });

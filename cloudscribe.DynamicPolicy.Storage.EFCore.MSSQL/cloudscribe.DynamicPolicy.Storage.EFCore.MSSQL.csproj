@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>MSSQL Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
-    <VersionPrefix>2.1.10</VersionPrefix>
-    <AssemblyVersion>2.1.10</AssemblyVersion>
+    <VersionPrefix>2.1.11</VersionPrefix>
+    <AssemblyVersion>2.1.11</AssemblyVersion>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
