@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql;
@@ -9,9 +10,10 @@ using cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql;
 namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.Migrations
 {
     [DbContext(typeof(DynamicPolicyDbContext))]
-    partial class DynamicPolicyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190816114646_cs-dynamic-policy-20190815b")]
+    partial class csdynamicpolicy20190815b
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,12 +120,11 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.Migrations
                     b.HasKey("Id")
                         .HasName("pk_csp_auth_policy");
 
+                    b.HasIndex("Name")
+                        .HasName("ix_csp_auth_policy_name");
+
                     b.HasIndex("TenantId")
                         .HasName("ix_csp_auth_policy_tenant_id");
-
-                    b.HasIndex("Name", "TenantId")
-                        .IsUnique()
-                        .HasName("ix_csp_auth_policy_name_tenant_id");
 
                     b.ToTable("csp_auth_policy");
                 });

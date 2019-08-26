@@ -26,7 +26,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql
                 entity.HasIndex(x => x.TenantId);
 
                 entity.Property(x => x.Name).HasMaxLength(200);
-                entity.HasIndex(x => x.Name).IsUnique();
+                entity.HasIndex(x => new { x.Name, x.TenantId }).IsUnique();
 
                 entity.HasMany(x => x.AllowedRoles).WithOne(x => x.Policy).IsRequired().OnDelete(DeleteBehavior.Cascade);
                 entity.HasMany(x => x.AuthenticationSchemes).WithOne(x => x.Policy).IsRequired().OnDelete(DeleteBehavior.Cascade);

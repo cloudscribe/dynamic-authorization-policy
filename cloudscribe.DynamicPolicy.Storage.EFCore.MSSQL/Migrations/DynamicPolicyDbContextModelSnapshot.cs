@@ -96,11 +96,11 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
+                    b.HasIndex("TenantId");
+
+                    b.HasIndex("Name", "TenantId")
                         .IsUnique()
                         .HasFilter("[Name] IS NOT NULL");
-
-                    b.HasIndex("TenantId");
 
                     b.ToTable("csp_AuthPolicy");
                 });
