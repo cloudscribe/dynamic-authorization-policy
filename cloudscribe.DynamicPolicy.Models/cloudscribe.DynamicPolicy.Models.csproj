@@ -2,8 +2,7 @@
 
   <PropertyGroup>
     <Description>model classes for Dynamic Authorization Policy for ASP.NET Core</Description>
-    <VersionPrefix>2.1.11</VersionPrefix>
-    <AssemblyVersion>2.1.11</AssemblyVersion>
+    <Version>3.0.0-preview20190902</Version>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
@@ -15,9 +14,9 @@
 
   
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Pagination.Models" Version="1.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.1.2" />
+    <PackageReference Include="cloudscribe.Pagination.Models" Version="1.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.0.0-*" />
   </ItemGroup>
 
 </Project>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace DynamicAuthPolicyDemo.Web
@@ -15,7 +16,8 @@ namespace DynamicAuthPolicyDemo.Web
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
+            var hostBuilder = CreateHostBuilder(args);
+            var host = hostBuilder.Build();
             var config = host.Services.GetRequiredService<IConfiguration>();
 
             using (var scope = host.Services.CreateScope())
@@ -42,9 +44,16 @@ namespace DynamicAuthPolicyDemo.Web
             //DynamicPolicyEFCore.InitializeDatabaseAsync(scopedServices).Wait();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+           Host.CreateDefaultBuilder(args)
+               .ConfigureWebHostDefaults(webBuilder =>
+               {
+                   webBuilder.UseStartup<Startup>();
+               });
+
+        //public static IWebHost BuildWebHost(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>()
+        //        .Build();
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace cloudscribeDemo.Web
     {
         public static void Main(string[] args)
         {
-            var hostBuilder = CreateWebHostBuilder(args);
+            var hostBuilder = CreateHostBuilder(args);
             var host = hostBuilder.Build();
             var config = host.Services.GetRequiredService<IConfiguration>();
 
@@ -31,7 +32,7 @@ namespace cloudscribeDemo.Web
                 }
             }
 
-            var env = host.Services.GetRequiredService<IHostingEnvironment>();
+            var env = host.Services.GetRequiredService<IWebHostEnvironment>();
             var loggerFactory = host.Services.GetRequiredService<ILoggerFactory>();
             
             ConfigureLogging(env, loggerFactory, host.Services, config);
@@ -39,9 +40,15 @@ namespace cloudscribeDemo.Web
             host.Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+           Host.CreateDefaultBuilder(args)
+               .ConfigureWebHostDefaults(webBuilder =>
+               {
+                   webBuilder.UseStartup<Startup>();
+               });
 
         private static void EnsureDataStorageIsReady(IConfiguration config, IServiceProvider scopedServices)
         {
@@ -68,7 +75,7 @@ namespace cloudscribeDemo.Web
         }
 
         private static void ConfigureLogging(
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory,
             IServiceProvider serviceProvider,
             IConfiguration config
