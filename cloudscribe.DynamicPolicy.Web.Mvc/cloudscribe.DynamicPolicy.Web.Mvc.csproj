@@ -2,15 +2,19 @@
 
   <PropertyGroup>
     <Description>Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>3.0.0-preview20190902</Version>
+    <Version>3.0.0</Version>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/joeaudette/cloudscribe</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
   
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -19,11 +23,11 @@
   
   <ItemGroup>
     
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0-*" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
     
-    <PackageReference Include="cloudscribe.Web.Common" Version="4.0.0-*" />
-    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.0.0-*" />
+    <PackageReference Include="cloudscribe.Web.Common" Version="4.0.0" />
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.0.0" />
     <PackageReference Include="cloudscribe.Versioning" Version="1.0.0" />
    
   </ItemGroup>

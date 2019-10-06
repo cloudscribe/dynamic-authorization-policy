@@ -60,13 +60,13 @@ namespace Microsoft.Extensions.DependencyInjection
                             break;
 
                         //case "pgsql-old":
-                        //    var pgConnection = config.GetConnectionString("PostgreSqlEntityFrameworkConnectionString");
+                        //    var pgConnection = config.GetConnectionString("PostgreSqlConnectionString");
                         //    services.AddCloudscribeCoreEFStoragePostgreSql(pgConnection);
                         //    services.AddCloudscribeLoggingEFStoragePostgreSql(pgConnection);
                         //    services.AddCloudscribeSimpleContentEFStoragePostgreSql(pgConnection);
                         //    services.AddDynamicPolicyEFStoragePostgreSql(pgConnection);
 
-                            //break;
+                        //break;
 
                         case "pgsql":
                             var pgsConnection = config.GetConnectionString("PostgreSqlConnectionString");

@@ -2,21 +2,24 @@
 
   <PropertyGroup>
     <Description>model classes for Dynamic Authorization Policy for ASP.NET Core</Description>
-    <Version>3.0.0-preview20190902</Version>
+    <Version>3.0.0</Version>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/joeaudette/cloudscribe</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="cloudscribe.Pagination.Models" Version="1.0.5" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0-*" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.0.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.0.0" />
   </ItemGroup>
 
 </Project>

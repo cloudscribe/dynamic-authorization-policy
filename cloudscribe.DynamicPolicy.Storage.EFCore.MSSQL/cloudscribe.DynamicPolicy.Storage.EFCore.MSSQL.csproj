@@ -2,15 +2,19 @@
 
   <PropertyGroup>
     <Description>MSSQL Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
-    <Version>3.0.0-preview20190902</Version>
+    <Version>3.0.0</Version>
     <Authors>Joe Audette</Authors>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/joeaudette/cloudscribe</PackageProjectUrl>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj" />
@@ -19,8 +23,8 @@
 
   <ItemGroup>
     <PackageReference Include="cloudscribe.Versioning" Version="1.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0-*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0-*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
