@@ -7,7 +7,7 @@ namespace Microsoft.AspNetCore.Builder
 {
     public static class RoutingAndMvc
     {
-        public static IRouteBuilder UseCustomRoutes(this IRouteBuilder routes, bool useFolders)
+        public static IEndpointRouteBuilder UseCustomRoutes(this IEndpointRouteBuilder routes, bool useFolders)
         {
             if (useFolders)
             {
@@ -18,64 +18,64 @@ namespace Microsoft.AspNetCore.Builder
             routes.AddCloudscribeFileManagerRoutes();
             if (useFolders)
             {
-                routes.MapRoute(
+                routes.MapControllerRoute(
                     name: "foldererrorhandler",
-                    template: "{sitefolder}/oops/error/{statusCode?}",
+                    pattern: "{sitefolder}/oops/error/{statusCode?}",
                     defaults: new { controller = "Oops", action = "Error" },
                     constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                 );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                        name: "apifoldersitemap",
-                       template: "{sitefolder}/api/sitemap"
+                       pattern: "{sitefolder}/api/sitemap"
                        , defaults: new { controller = "FolderSiteMap", action = "Index" }
                        , constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                        );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                         name: "foldersitemap",
-                        template: "{sitefolder}/sitemap"
+                        pattern: "{sitefolder}/sitemap"
                         , defaults: new { controller = "Page", action = "SiteMap" }
                         , constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                         );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                        name: "apifoldermetaweblog",
-                       template: "{sitefolder}/api/metaweblog"
+                       pattern: "{sitefolder}/api/metaweblog"
                        , defaults: new { controller = "FolderMetaweblog", action = "Index" }
                        , constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                        );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                        name: "apifolderrss",
-                       template: "{sitefolder}/api/rss"
+                       pattern: "{sitefolder}/api/rss"
                        , defaults: new { controller = "FolderRss", action = "Index" }
                        , constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                        );
 
-                routes.MapRoute(
+                routes.MapControllerRoute(
                     name: "folderdefault",
-                    template: "{sitefolder}/{controller}/{action}/{id?}",
+                    pattern: "{sitefolder}/{controller}/{action}/{id?}",
                     defaults: null,
                     constraints: new { name = new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint() }
                     );
                 routes.AddDefaultPageRouteForSimpleContent(new cloudscribe.Core.Web.Components.SiteFolderRouteConstraint());
             }
-            routes.MapRoute(
+            routes.MapControllerRoute(
                 name: "errorhandler",
-                template: "oops/error/{statusCode?}",
+                pattern: "oops/error/{statusCode?}",
                 defaults: new { controller = "Oops", action = "Error" }
                 );
 
 
-            routes.MapRoute(
+            routes.MapControllerRoute(
                 name: "sitemap",
-                template: "sitemap"
+                pattern: "sitemap"
                 , defaults: new { controller = "Page", action = "SiteMap" }
                 );
-            routes.MapRoute(
+            routes.MapControllerRoute(
                 name: "def",
-                template: "{controller}/{action}"
+                pattern: "{controller}/{action}"
                 , defaults: new { action = "Index" }
                 );
             routes.AddDefaultPageRouteForSimpleContent();
@@ -120,7 +120,8 @@ namespace Microsoft.AspNetCore.Builder
                 {
                     options.ViewLocationExpanders.Add(new cloudscribe.Core.Web.Components.SiteViewLocationExpander());
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                ;
 
             return services;
         }

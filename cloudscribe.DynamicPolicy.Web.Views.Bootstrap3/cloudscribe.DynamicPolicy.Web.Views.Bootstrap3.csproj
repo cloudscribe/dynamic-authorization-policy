@@ -2,16 +2,21 @@
 
   <PropertyGroup>
     <Description>Bootstrap 3 views for cloudscribe Dynamic Authorization Policy</Description>
-    <VersionPrefix>2.1.9</VersionPrefix>
-    <AssemblyVersion>2.1.9</AssemblyVersion>
+    <Version>3.0.0</Version>
     <Authors>Joe Audette</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/joeaudette/cloudscribe</PackageProjectUrl>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;0436</NoWarn>
@@ -21,7 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>

@@ -38,6 +38,9 @@ namespace cloudscribe.DynamicPolicy.Models
                 cacheKey,
                 policyList,
                 new MemoryCacheEntryOptions()
+                { 
+                    Size = _options.CacheItemSize
+                }
                  .SetSlidingExpiration(TimeSpan.FromSeconds(_options.CacheDurationInSeconds))
                  );
         }

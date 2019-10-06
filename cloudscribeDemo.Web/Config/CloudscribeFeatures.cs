@@ -9,7 +9,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection SetupDataStorage(
             this IServiceCollection services,
             IConfiguration config,
-            IHostingEnvironment env
+            IWebHostEnvironment env
             )
         {
             var storage = config["DevOptions:DbPlatform"];
@@ -22,7 +22,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
                     if (useMiniProfiler)
                     {
-                        services.AddMiniProfiler();
+                       // services.AddMiniProfiler();
                     }
 
                     services.AddCloudscribeCoreNoDbStorage();
@@ -37,8 +37,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
                     if (useMiniProfiler)
                     {
-                        services.AddMiniProfiler()
-                            .AddEntityFramework();
+                        //services.AddMiniProfiler()
+                        //    .AddEntityFramework();
                     }
 
                     switch (efProvider)
@@ -60,13 +60,13 @@ namespace Microsoft.Extensions.DependencyInjection
                             break;
 
                         //case "pgsql-old":
-                        //    var pgConnection = config.GetConnectionString("PostgreSqlEntityFrameworkConnectionString");
+                        //    var pgConnection = config.GetConnectionString("PostgreSqlConnectionString");
                         //    services.AddCloudscribeCoreEFStoragePostgreSql(pgConnection);
                         //    services.AddCloudscribeLoggingEFStoragePostgreSql(pgConnection);
                         //    services.AddCloudscribeSimpleContentEFStoragePostgreSql(pgConnection);
                         //    services.AddDynamicPolicyEFStoragePostgreSql(pgConnection);
 
-                            //break;
+                        //break;
 
                         case "pgsql":
                             var pgsConnection = config.GetConnectionString("PostgreSqlConnectionString");
