@@ -47,87 +47,87 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             entity.RequireAuthenticatedUser = policy.RequireAuthenticatedUser;
             entity.RequiredUserName = policy.RequiredUserName;
             entity.Notes = policy.Notes;
-            policy.AllowedRoles.SyncTo(entity.AllowedRoles, entity);
-            policy.AuthenticationSchemes.SyncTo(entity.AuthenticationSchemes, entity);
-            policy.RequiredClaims.SyncTo(entity.RequiredClaims, entity);
+            //policy.AllowedRoles.SyncTo(entity.AllowedRoles, entity);
+            //policy.AuthenticationSchemes.SyncTo(entity.AuthenticationSchemes, entity);
+            //policy.RequiredClaims.SyncTo(entity.RequiredClaims, entity);
 
         }
 
-        public static void SyncTo(this List<ClaimRequirement> requiredClaims, List<ClaimRequirementEntity> claimEntities, AuthorizationPolicyEntity entity)
-        {
-            if (requiredClaims.Count == 0)
-            {
-                claimEntities.Clear();
-            }
-            else
-            {
-                if (claimEntities.Count > 0)
-                {
-                    for (int i = 0; i < claimEntities.Count; i++)
-                    {
-                        if (!requiredClaims.HasClaim(claimEntities[i].ClaimName))
-                        {
-                            claimEntities.RemoveAt(i);
-                        }
-                    }
-                }
+        //public static void SyncTo(this List<ClaimRequirement> requiredClaims, List<ClaimRequirementEntity> claimEntities, AuthorizationPolicyEntity entity)
+        //{
+        //    if (requiredClaims.Count == 0)
+        //    {
+        //        claimEntities.Clear();
+        //    }
+        //    else
+        //    {
+        //        if (claimEntities.Count > 0)
+        //        {
+        //            for (int i = 0; i < claimEntities.Count; i++)
+        //            {
+        //                if (!requiredClaims.HasClaim(claimEntities[i].ClaimName))
+        //                {
+        //                    claimEntities.RemoveAt(i);
+        //                }
+        //            }
+        //        }
 
-                foreach (var c in requiredClaims)
-                {
-                    var found = claimEntities.FindClaim(c.ClaimName);
-                    if (found != null)
-                    {
-                        c.SyncTo(found);
-                    }
-                    else
-                    {
-                        var newClaim = new ClaimRequirementEntity();
-                        newClaim.ClaimName = c.ClaimName;
-                        newClaim.Policy = entity;
-                        c.SyncTo(newClaim);
-                        claimEntities.Add(newClaim);
-                    }
-                }
-
-
-            }
-
-        }
-
-        public static void SyncTo(this ClaimRequirement claim, ClaimRequirementEntity entity)
-        {
-            if (claim.AllowedValues.Count == 0)
-            {
-                entity.AllowedValues.Clear();
-            }
-            else
-            {
-                if (entity.AllowedValues.Count > 0)
-                {
-                    for (int i = 0; i < entity.AllowedValues.Count; i++)
-                    {
-                        if (!claim.AllowedValues.Contains(entity.AllowedValues[i].AllowedValue))
-                        {
-                            entity.AllowedValues.RemoveAt(i);
-                        }
-                    }
-                }
-
-                foreach (var s in claim.AllowedValues)
-                {
-                    if (!entity.AllowedValues.HasRequiredValue(s))
-                    {
-                        var r = new AllowedClaimValueEntity();
-                        r.AllowedValue = s;
-                        r.ClaimRequirement = entity;
-                        entity.AllowedValues.Add(r);
-                    }
-                }
+        //        foreach (var c in requiredClaims)
+        //        {
+        //            var found = claimEntities.FindClaim(c.ClaimName);
+        //            if (found != null)
+        //            {
+        //                c.SyncTo(found);
+        //            }
+        //            else
+        //            {
+        //                var newClaim = new ClaimRequirementEntity();
+        //                newClaim.ClaimName = c.ClaimName;
+        //                newClaim.Policy = entity;
+        //                c.SyncTo(newClaim);
+        //                claimEntities.Add(newClaim);
+        //            }
+        //        }
 
 
-            }
+        //    }
 
-        }
+        //}
+
+        //public static void SyncTo(this ClaimRequirement claim, ClaimRequirementEntity entity)
+        //{
+        //    if (claim.AllowedValues.Count == 0)
+        //    {
+        //        entity.AllowedValues.Clear();
+        //    }
+        //    else
+        //    {
+        //        if (entity.AllowedValues.Count > 0)
+        //        {
+        //            for (int i = 0; i < entity.AllowedValues.Count; i++)
+        //            {
+        //                if (!claim.AllowedValues.Contains(entity.AllowedValues[i].AllowedValue))
+        //                {
+        //                    entity.AllowedValues.RemoveAt(i);
+        //                }
+        //            }
+        //        }
+
+        //        foreach (var s in claim.AllowedValues)
+        //        {
+        //            if (!entity.AllowedValues.HasRequiredValue(s))
+        //            {
+        //                var r = new AllowedClaimValueEntity();
+        //                r.AllowedValue = s;
+        //                r.ClaimRequirement = entity;
+        //                entity.AllowedValues.Add(r);
+        //            }
+        //        }
+
+
+        //    }
+
+        //}
 
         public static bool HasRequiredValue(this List<AllowedClaimValueEntity> requiredClaims, string value)
         {
@@ -161,39 +161,39 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
         }
 
 
-        public static void SyncTo(this List<string> allowedRoleStrings, List<AllowedRoleEntity> allowedRoles, AuthorizationPolicyEntity entity)
-        {
-            if (allowedRoleStrings.Count == 0)
-            {
-                allowedRoles.Clear();
-            }
-            else
-            {
-                if (allowedRoles.Count > 0)
-                {
-                    for (int i = 0; i < allowedRoles.Count; i++)
-                    {
-                        if (!allowedRoleStrings.Contains(allowedRoles[i].AllowedRole))
-                        {
-                            allowedRoles.RemoveAt(i);
-                        }
-                    }
-                }
+        //public static void SyncTo(this List<string> allowedRoleStrings, List<AllowedRoleEntity> allowedRoles, AuthorizationPolicyEntity entity)
+        //{
+        //    if (allowedRoleStrings.Count == 0)
+        //    {
+        //        allowedRoles.Clear();
+        //    }
+        //    else
+        //    {
+        //        if (allowedRoles.Count > 0)
+        //        {
+        //            for (int i = 0; i < allowedRoles.Count; i++)
+        //            {
+        //                if (!allowedRoleStrings.Contains(allowedRoles[i].AllowedRole))
+        //                {
+        //                    allowedRoles.RemoveAt(i);
+        //                }
+        //            }
+        //        }
 
-                foreach (var s in allowedRoleStrings)
-                {
-                    if (!allowedRoles.HasRole(s))
-                    {
-                        var r = new AllowedRoleEntity();
-                        r.AllowedRole = s;
-                        r.Policy = entity;
-                        allowedRoles.Add(r);
-                    }
-                }
+        //        foreach (var s in allowedRoleStrings)
+        //        {
+        //            if (!allowedRoles.HasRole(s))
+        //            {
+        //                var r = new AllowedRoleEntity();
+        //                r.AllowedRole = s;
+        //                r.Policy = entity;
+        //                allowedRoles.Add(r);
+        //            }
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
         public static bool HasRole(this List<AllowedRoleEntity> allowedRoles, string roleName)
         {
@@ -205,39 +205,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             return false;
         }
 
-        public static void SyncTo(this List<string> authSchemeStrings, List<AuthenticationSchemeEntity> allowedSchemes, AuthorizationPolicyEntity entity)
-        {
-            if (authSchemeStrings.Count == 0)
-            {
-                allowedSchemes.Clear();
-            }
-            else
-            {
-                if (allowedSchemes.Count > 0)
-                {
-                    for (int i = 0; i < allowedSchemes.Count; i++)
-                    {
-                        if (!authSchemeStrings.Contains(allowedSchemes[i].AuthenticationScheme))
-                        {
-                            allowedSchemes.RemoveAt(i);
-                        }
-                    }
-                }
-
-                foreach (var s in authSchemeStrings)
-                {
-                    if (!allowedSchemes.HasScheme(s))
-                    {
-                        var r = new AuthenticationSchemeEntity();
-                        r.AuthenticationScheme = s;
-                        r.Policy = entity;
-                        allowedSchemes.Add(r);
-                    }
-                }
-
-            }
-
-        }
+        
 
         public static bool HasScheme(this List<AuthenticationSchemeEntity> authSchemes, string schemeName)
         {

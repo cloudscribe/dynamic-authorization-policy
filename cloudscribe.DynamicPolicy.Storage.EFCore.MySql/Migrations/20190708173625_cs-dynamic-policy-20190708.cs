@@ -6,9 +6,9 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.MySql.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequirementId",
-                table: "csp_AuthPolicyClaimValue");
+            //migrationBuilder.DropForeignKey(
+            //    name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequirementId",
+            //    table: "csp_AuthPolicyClaimValue");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequiremen~",
@@ -25,13 +25,13 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.MySql.Migrations
                 name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequiremen~",
                 table: "csp_AuthPolicyClaimValue");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequirementId",
-                table: "csp_AuthPolicyClaimValue",
-                column: "ClaimRequirementId",
-                principalTable: "csp_AuthPolicyClaim",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+            //migrationBuilder.AddForeignKey(
+            //    name: "FK_csp_AuthPolicyClaimValue_csp_AuthPolicyClaim_ClaimRequirementId",
+            //    table: "csp_AuthPolicyClaimValue",
+            //    column: "ClaimRequirementId",
+            //    principalTable: "csp_AuthPolicyClaim",
+            //    principalColumn: "Id",
+            //    onDelete: ReferentialAction.Cascade);
         }
     }
 }
