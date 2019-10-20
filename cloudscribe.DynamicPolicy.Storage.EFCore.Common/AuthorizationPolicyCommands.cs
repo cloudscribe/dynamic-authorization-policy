@@ -33,6 +33,10 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             {
                 var entity = new AuthorizationPolicyEntity();
                 policy.CopyTo(entity);
+                SyncRoles(db, policy.AllowedRoles, entity);
+                SyncSchemes(db, policy.AuthenticationSchemes, entity);
+                SyncClaimRequirements(db, policy.RequiredClaims, entity);
+
                 db.Policies.Add(entity);
 
                 int rowsAffected = await db.SaveChangesAsync(cancellationToken)
