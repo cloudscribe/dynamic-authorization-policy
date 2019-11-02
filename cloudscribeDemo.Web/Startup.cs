@@ -125,24 +125,25 @@ namespace cloudscribeDemo.Web
                     _sslIsAvailable);
 
             var useFolders = multiTenantOptions.Mode == cloudscribe.Core.Models.MultiTenantMode.FolderName;
-            app.UseEndpoints(endpoints =>
-            {
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.UseCustomRoutes(useFolders);
-            });
-
-
-            //app.UseMvc(routes =>
+            //app.UseEndpoints(endpoints =>
             //{
-            //    var useFolders = multiTenantOptions.Mode == cloudscribe.Core.Models.MultiTenantMode.FolderName;
-            //    //*** IMPORTANT ***
-            //    // this is in Config/RoutingAndMvc.cs
-            //    // you can change or add routes there
-            //    routes.UseCustomRoutes(useFolders);
+            //    //endpoints.MapControllerRoute(
+            //    //    name: "default",
+            //    //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            //    endpoints.UseCustomRoutes(useFolders);
             //});
+
+#pragma warning disable MVC1005 // Cannot use UseMvc with Endpoint Routing.
+            app.UseMvc(routes =>
+            {
+                var useFolders = multiTenantOptions.Mode == cloudscribe.Core.Models.MultiTenantMode.FolderName;
+                //*** IMPORTANT ***
+                // this is in Config/RoutingAndMvc.cs
+                // you can change or add routes there
+                routes.UseCustomRoutes(useFolders);
+            });
+#pragma warning restore MVC1005 // Cannot use UseMvc with Endpoint Routing.
 
         }
 
