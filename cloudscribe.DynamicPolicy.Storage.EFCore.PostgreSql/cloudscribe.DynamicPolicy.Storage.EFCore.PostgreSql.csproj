@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>PostgreSql Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
-    <Version>3.0.2</Version>
+    <Version>3.0.3-alpha</Version>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <PackageIcon>icon.png</PackageIcon>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="icon.png" Pack="true" PackagePath="\"/>
+    <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
  
 
@@ -24,9 +24,9 @@
 
   <ItemGroup>
     <PackageReference Include="cloudscribe.Versioning" Version="1.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.0" />
     <PackageReference Include="cloudscribe.EFCore.PostgreSql.Conventions" Version="3.0.2" />
   </ItemGroup>
 
