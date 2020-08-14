@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
-    <Version>3.0.2</Version>
+    <Version>3.1.0</Version>
     <Authors>Joe Audette</Authors>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageIcon>icon.png</PackageIcon>
@@ -16,16 +16,13 @@
     <None Include="icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
-  
-
   <ItemGroup>
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
   </ItemGroup>
 
 </Project>
