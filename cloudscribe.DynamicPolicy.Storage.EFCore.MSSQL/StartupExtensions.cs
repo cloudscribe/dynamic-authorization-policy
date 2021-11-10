@@ -14,8 +14,8 @@ namespace Microsoft.Extensions.DependencyInjection
             string connectionString,
             int maxConnectionRetryCount = 0,
             int maxConnectionRetryDelaySeconds = 30,
-            ICollection<int> transientSqlErrorNumbersToAdd = null,
-            bool useSql2008Compatibility = false
+            ICollection<int> transientSqlErrorNumbersToAdd = null
+            // bool useSql2008Compatibility = false
             )
         {
             
@@ -31,11 +31,6 @@ namespace Microsoft.Extensions.DependencyInjection
                                maxRetryCount: maxConnectionRetryCount,
                                maxRetryDelay: TimeSpan.FromSeconds(maxConnectionRetryDelaySeconds),
                                errorNumbersToAdd: transientSqlErrorNumbersToAdd);
-                       }
-
-                       if (useSql2008Compatibility)
-                       {
-                           sqlOptions.UseRowNumberForPaging();
                        }
                    }),
                    optionsLifetime: ServiceLifetime.Singleton
