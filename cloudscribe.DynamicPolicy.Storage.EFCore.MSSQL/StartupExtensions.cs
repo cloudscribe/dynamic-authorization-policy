@@ -19,7 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
             )
         {
             
-            services.AddEntityFrameworkSqlServer()
+            services // .AddEntityFrameworkSqlServer()
                 .AddDbContext<DynamicPolicyDbContext>(options =>
                     options.UseSqlServer(connectionString,
                    sqlServerOptionsAction: sqlOptions =>

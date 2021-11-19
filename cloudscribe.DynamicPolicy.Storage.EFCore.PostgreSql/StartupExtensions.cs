@@ -19,7 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             
 
-            services.AddEntityFrameworkNpgsql()
+            services // .AddEntityFrameworkNpgsql()
                 .AddDbContext<DynamicPolicyDbContext>(options =>
                     options.UseNpgsql(connectionString,
                     npgsqlOptionsAction: sqlOptions =>
