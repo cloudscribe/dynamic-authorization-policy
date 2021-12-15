@@ -24,16 +24,11 @@
   <ItemGroup>
     <PackageReference Include="cloudscribe.Versioning" Version="1.0.0" />
 
-    <!--<PackageReference Include="cloudscribe.Web.Common" Version="4.0.0" />
-    <PackageReference Include="cloudscribe.Web.Pagination" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0" />-->
     <PackageReference Include="cloudscribe.Web.Common" Version="5.0.0" />
     <PackageReference Include="cloudscribe.Web.Pagination" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
   </ItemGroup>
-
  
   <ItemGroup>
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj" />
