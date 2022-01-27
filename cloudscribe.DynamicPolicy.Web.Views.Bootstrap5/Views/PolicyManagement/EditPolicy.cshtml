@@ -23,7 +23,7 @@
         <input asp-for="Id" type="hidden" />
         @if (options.ShowRequireAuthenticatedUserOption)
         {
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="form-check">
                     <input asp-for="RequireAuthenticatedUser" class="form-check-input" />
                     <label asp-for="RequireAuthenticatedUser" class="form-check-label"> @sr["Require Authenticated User"]</label>
@@ -34,7 +34,7 @@
         {
             <input name="RequireAuthenticatedUser" value="false" type="hidden" />
         }
-        <div class="form-group">
+        <div class="mb-3">
             <p>@sr["Note that roles use OR logic, a user only has to be in any one of the allowed roles to meet the policy requirement."]</p>
             <label asp-for="AllowedRolesCsv">@sr["Allowed Roles (comma separated values)"]</label>
             <input asp-for="AllowedRolesCsv" class="form-control" />
@@ -46,7 +46,7 @@
         </div>
         @if (options.ShowAuthenticationSchemeOptions)
         {
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="AuthenticationSchemesCsv">@sr["Authentication Schemes (comma separated values, leave blank for all)"]</label>
                 <input asp-for="AuthenticationSchemesCsv" class="form-control" />
                 <span asp-validation-for="AuthenticationSchemesCsv" class="invalid-feedback"></span>
@@ -58,7 +58,7 @@
         }
         @if (options.ShowRequiredUserNameOption)
         {
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="RequiredUserName">@sr["Required User Name"]</label>
                 <input asp-for="RequiredUserName" class="form-control" />
                 <span asp-validation-for="RequiredUserName" class="invalid-feedback"></span>
@@ -69,13 +69,13 @@
             <input name="RequiredUserName" value="" type="hidden" />
         }
 
-        <div class="form-group">
+        <div class="mb-3">
             <label asp-for="Notes">@sr["Notes"]</label>
             <textarea asp-for="Notes" class="form-control"></textarea>
             <span asp-validation-for="Notes" class="invalid-feedback"></span>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <button type="submit" class="btn btn-primary" data-disabled-text='@sr["Working..."]' data-enabled-text='@sr["Save"]'>@sr["Save"]</button>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
                 @sr["Delete"]
@@ -107,7 +107,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="confirmDeleteHeading">@sr["Confirm Delete"]</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label='@sr["Close"]'><span aria-hidden="true">&times;</span></button>
+                    <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label='@sr["Close"]'></button>
                 </div>
                 <div class="modal-body">
                     @prompt

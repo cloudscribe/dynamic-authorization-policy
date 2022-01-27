@@ -10,16 +10,16 @@
             @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
             <input asp-for="PolicyId" type="hidden" />
             <input asp-for="ClaimName" type="hidden" />
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="control-label">@sr["Claim Name"]</label>
                 <label class="form-control">@Model.ClaimName</label>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label asp-for="AllowedValuesCsv" class="control-label">@sr["Allowed Values Csv (leave blank if any value is allowed)"]</label>
                 <input asp-for="AllowedValuesCsv" class="form-control" />
                 <span asp-validation-for="AllowedValuesCsv" class="invalid-feedback"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <button type="submit" class="btn btn-primary">@sr["Save"]</button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@("#" + deleteFormId + "confirmDeleteModal")">
                     @sr["Delete"]
@@ -34,7 +34,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="@(deleteFormId + "confirmDeleteHeading")">@sr["Confirm Delete"]</h4>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label='@sr["Close"]'><span aria-hidden="true">&times;</span></button>
+                            <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label='@sr["Close"]'></button>
                         </div>
                         <div class="modal-body">
                             @prompt
