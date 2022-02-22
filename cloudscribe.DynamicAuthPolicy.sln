@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Models", "cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj", "{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribeDemo.Web", "cloudscribeDemo.Web\cloudscribeDemo.Web.csproj", "{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql", "cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql\cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.csproj", "{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cloudscribe.DynamicPolicy.Web.Views.Bootstrap5", "cloudscribe.DynamicPolicy.Web.Views.Bootstrap5\cloudscribe.DynamicPolicy.Web.Views.Bootstrap5.csproj", "{FFA88888-9D20-4661-94C3-BF786B65CE20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7C3548-1E56-4C65-8318-2CE2A6C69AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA88888-9D20-4661-94C3-BF786B65CE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA88888-9D20-4661-94C3-BF786B65CE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA88888-9D20-4661-94C3-BF786B65CE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA88888-9D20-4661-94C3-BF786B65CE20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
