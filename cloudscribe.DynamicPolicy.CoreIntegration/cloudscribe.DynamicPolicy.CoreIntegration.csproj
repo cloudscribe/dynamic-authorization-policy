@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>cloudscribe Core integration for Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>5.0.0</Version>
-    <TargetFramework>net5.0</TargetFramework>
+    <Version>6.0.0</Version>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
@@ -18,13 +18,13 @@
 
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Core.Models" Version="5.0.0" />
-    <PackageReference Include="cloudscribe.Multitenancy" Version="5.0.0" />
+    <PackageReference Include="cloudscribe.Core.Models" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.Multitenancy" Version="6.0.0" />
     
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.0" />
   </ItemGroup>
 
 
