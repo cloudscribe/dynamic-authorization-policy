@@ -38,20 +38,20 @@
     <PackageReference Include="cloudscribe.Core.Storage.EFCore.PostgreSql" Version="6.0.0" />
     <PackageReference Include="cloudscribe.Core.Storage.EFCore.SQLite" Version="6.0.0" />
 
-    <PackageReference Include="cloudscribe.Core.SimpleContent" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Web" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.Core.SimpleContent.CompiledViews.Bootstrap4" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.CompiledViews.Bootstrap4" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.MetaWeblog" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Syndication" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.ContentTemplates.Bootstrap4" Version="5.5.0" />
+    <PackageReference Include="cloudscribe.Core.SimpleContent" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Web" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.Core.SimpleContent.CompiledViews.Bootstrap4" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.CompiledViews.Bootstrap4" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.MetaWeblog" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Syndication" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.ContentTemplates.Bootstrap4" Version="6.0.0" />
 
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.NoDb" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.MSSQL" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.MySQL" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.pgsql" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.PostgreSql" Version="5.5.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.SQLite" Version="5.5.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.NoDb" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.MSSQL" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.MySQL" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.pgsql" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.PostgreSql" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.SQLite" Version="6.0.0" />
 
     <PackageReference Include="cloudscribe.Logging.Web" Version="6.0.0" />
     <PackageReference Include="cloudscribe.Logging.NoDb" Version="6.0.0" />
