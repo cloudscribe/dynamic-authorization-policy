@@ -2,6 +2,7 @@
 using cloudscribe.DynamicPolicy.Storage.EFCore.MSSQL;
 using cloudscribe.Versioning;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 
@@ -24,6 +25,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     options.UseSqlServer(connectionString,
                    sqlServerOptionsAction: sqlOptions =>
                    {
+                       sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+
                        if (maxConnectionRetryCount > 0)
                        {
                            //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
@@ -32,7 +35,11 @@ namespace Microsoft.Extensions.DependencyInjection
                                maxRetryDelay: TimeSpan.FromSeconds(maxConnectionRetryDelaySeconds),
                                errorNumbersToAdd: transientSqlErrorNumbersToAdd);
                        }
-                   }),
+                   })
+
+                   // how to find query splitting issues....
+                   // .ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))
+                   ,
                    optionsLifetime: ServiceLifetime.Singleton
                    );
 
