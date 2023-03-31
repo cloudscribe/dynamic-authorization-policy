@@ -23,6 +23,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), // breaking change in Net5.0
                     mySqlOptionsAction: sqlOptions =>
                     {
+                        sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+
                         if (maxConnectionRetryCount > 0)
                         {
                             //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 

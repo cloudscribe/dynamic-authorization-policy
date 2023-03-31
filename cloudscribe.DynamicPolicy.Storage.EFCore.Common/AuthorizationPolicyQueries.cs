@@ -107,6 +107,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             };
 
             query = query
+                .AsSingleQuery()  // best not to use split queries in association with skip and take
                 .OrderBy(x => x.Name)
                 .Select(p => p)
                 .Skip(offset)
