@@ -41,11 +41,12 @@ namespace cloudscribe.DynamicPolicy.Web.Mvc.Controllers
             CancellationToken cancellationToken, 
             string q = null,
             int pageNumber = 1, 
-            int pageSize = 10)
+            int pageSize = 20)
         {
             var model = new PolicyListViewModel()
             {
-                Q = q
+                Q = q,
+                PageSize = pageSize
             };
             model.Policies = await _service.GetPageOfPolicies(
                 q,

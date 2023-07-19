@@ -92,7 +92,7 @@ namespace cloudscribe.DynamicPolicy.Storage.NoDb
             if (searchQuery == null) { searchQuery = string.Empty; }
 
             var query = all.AsQueryable()
-               .Where(x => searchQuery == string.Empty || x.Name.StartsWith(searchQuery, StringComparison.InvariantCultureIgnoreCase));
+               .Where(x => searchQuery == string.Empty || x.Name.Contains(searchQuery, StringComparison.InvariantCultureIgnoreCase));
 
             var result = new PagedResult<AuthorizationPolicyInfo>
             {

@@ -47,14 +47,21 @@
 <h2>@ViewData["Title"]</h2>
 
 <form class="form-inline mb-3" role="form" asp-controller="PolicyManagement" asp-action="Index" method="get" asp-antiforgery="false">
-    <a class="btn btn-outline-primary me-2" asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New"]</a>
-    <div class="input-group">
-        <input asp-for="Q" name="q" class="form-control" />
-        <span class="input-group-btn">
-            <button type="submit" value='@sr["Search"]' class="btn btn-primary">@sr["Search"]</button>
-        </span>
+    <div class="row align-items-left mt-1 mb-1 gx-0">
+        <div class="col-2 w-auto align-self-center">
+            <input asp-for="Q" name="q" class="form-control mb-1" />
+        </div>
+
+        <div class="col-3 w-auto align-self-center">
+            <button type="submit" value='@sr["Search"]' class="btn btn-primary me-4 mb-1">@sr["Search"]</button>
+        </div>
+
+
+        <div class="col-3 w-auto align-self-center">
+            <a class="btn btn-outline-primary mb-1" asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New"]</a>
+        </div>
+
     </div>
-</form>
 
 <table class="table table-striped mb-2">
     <thead>
@@ -93,20 +100,33 @@
     </tbody>
 </table>
 
-<cs-pager asp-action="Index" asp-controller="PolicyManagement"
-          asp-route-q="@Model.Q"
-          asp-route-pagesize="@Model.Policies.PageSize"
-          cs-paging-pagesize="@Model.Policies.PageSize"
-          cs-paging-pagenumber="@Model.Policies.PageNumber"
-          cs-paging-totalitems="@Model.Policies.TotalItems"
-          cs-first-page-title='@sr["First Page"]'
-          cs-last-page-title='@sr["Last Page"]'
-          cs-previous-page-title='@sr["Previous page"]'
-          cs-next-page-title='@sr["Next page"]'
-          cs-pager-ul-class="pagination d-flex flex-wrap"
-          cs-pager-li-current-class="page-item active"
-          cs-pager-li-other-class="page-item"
-          cs-pager-li-non-active-class="page-item disabled"
-          cs-pager-link-current-class="page-link"
-          cs-pager-link-other-class="page-link"></cs-pager>
+<cs-pager asp-action                   ="Index" asp-controller="PolicyManagement"
+          asp-route-q                  ="@Model.Q"
+          asp-route-pagesize           ="@Model.Policies.PageSize"
+          cs-paging-pagesize           ="@Model.Policies.PageSize"
+          cs-paging-pagenumber         ="@Model.Policies.PageNumber"
+          cs-paging-totalitems         ="@Model.Policies.TotalItems"
+          cs-first-page-title          ='@sr["First Page"]'
+          cs-last-page-title           ='@sr["Last Page"]'
+          cs-previous-page-title       ='@sr["Previous page"]'
+          cs-next-page-title           ='@sr["Next page"]'
+          cs-pager-ul-class            ="pagination d-flex flex-wrap"
+          cs-pager-li-current-class    ="page-item active"
+          cs-pager-li-other-class      ="page-item"
+          cs-pager-li-non-active-class ="page-item disabled"
+          cs-pager-link-current-class  ="page-link"
+          cs-pager-link-other-class    ="page-link"></cs-pager>
 
+    <div class="row align-items-left mt-1 mb-1 gx-2">
+        <div class="col-2 w-auto align-self-center">
+            <label asp-for="PageSize" class="me-1">@sr["Page Size"]</label>
+        </div>
+        <div class="col-2 w-auto align-self-center">
+            <input asp-for="PageSize" class="form-control me-1" style="max-width:80px;" placeholder="@sr["Page Size"]" title="@sr["Page Size"]" />
+        </div>
+
+        <div class="col-3 w-auto align-self-center">
+            <button id="btnSearch" name="command" value="search" type="submit" class="btn btn-primary me-1">@sr["Apply"]</button>
+        </div>
+    </div>
+    </form>

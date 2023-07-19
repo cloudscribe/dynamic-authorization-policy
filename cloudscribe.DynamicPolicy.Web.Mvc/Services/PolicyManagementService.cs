@@ -52,7 +52,7 @@ namespace cloudscribe.DynamicPolicy.Services
         public async Task<PagedResult<AuthorizationPolicyInfo>> GetPageOfPolicies(
             string query = null,
             int pageNumber = 1,
-            int pageSize = 10,
+            int pageSize = 20,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             cancellationToken.ThrowIfCancellationRequested();

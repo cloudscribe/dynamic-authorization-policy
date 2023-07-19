@@ -19,7 +19,7 @@
 
     <Content Remove="appsettings.Development.json" CopyToPublishDirectory="Never" />
     <Content Include="appsettings.Development.json" CopyToPublishDirectory="Never" />
-    
+      
     <Content Include="sitefiles\**\wwwroot\**" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="SharedThemes\**\wwwroot\**" CopyToPublishDirectory="PreserveNewest" />
 
