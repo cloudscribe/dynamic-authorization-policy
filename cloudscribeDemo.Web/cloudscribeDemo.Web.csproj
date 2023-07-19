@@ -28,7 +28,7 @@
   <ItemGroup Label="Package References">
 
     <PackageReference Include="cloudscribe.Core.Web" Version="6.0.0" />
-    <PackageReference Include="cloudscribe.Core.CompiledViews.Bootstrap4" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.Core.CompiledViews.Bootstrap5" Version="6.0.0" />
     <PackageReference Include="cloudscribe.Web.StaticFiles" Version="6.0.0" />
     
     <PackageReference Include="cloudscribe.Core.Storage.NoDb" Version="6.0.0" />
@@ -40,11 +40,11 @@
 
     <PackageReference Include="cloudscribe.Core.SimpleContent" Version="6.0.0" />
     <PackageReference Include="cloudscribe.SimpleContent.Web" Version="6.0.0" />
-    <PackageReference Include="cloudscribe.Core.SimpleContent.CompiledViews.Bootstrap4" Version="6.0.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.CompiledViews.Bootstrap4" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.Core.SimpleContent.CompiledViews.Bootstrap5" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.CompiledViews.Bootstrap5" Version="6.0.0" />
     <PackageReference Include="cloudscribe.SimpleContent.MetaWeblog" Version="6.0.0" />
     <PackageReference Include="cloudscribe.SimpleContent.Syndication" Version="6.0.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.ContentTemplates.Bootstrap4" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.SimpleContent.ContentTemplates.Bootstrap5" Version="6.0.0" />
 
     <PackageReference Include="cloudscribe.SimpleContent.Storage.NoDb" Version="6.0.0" />
     <PackageReference Include="cloudscribe.SimpleContent.Storage.EFCore.MSSQL" Version="6.0.0" />
@@ -73,7 +73,7 @@
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Storage.EFCore.SQLite\cloudscribe.DynamicPolicy.Storage.EFCore.SQLite.csproj" />
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Storage.NoDb\cloudscribe.DynamicPolicy.Storage.NoDb.csproj" />
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Web.Mvc\cloudscribe.DynamicPolicy.Web.Mvc.csproj" />
-    <ProjectReference Include="..\cloudscribe.DynamicPolicy.Web.Views.Bootstrap4\cloudscribe.DynamicPolicy.Web.Views.Bootstrap4.csproj" />
+    <ProjectReference Include="..\cloudscribe.DynamicPolicy.Web.Views.Bootstrap5\cloudscribe.DynamicPolicy.Web.Views.Bootstrap5.csproj" />
   </ItemGroup>
 
 </Project>
