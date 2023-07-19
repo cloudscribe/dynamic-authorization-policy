@@ -13,6 +13,8 @@ namespace cloudscribe.DynamicPolicy.Web.Mvc.ViewModels
         //the query
         public string Q { get; set; }
 
+        public int PageSize { get; set; } = 20;
+
         public PagedResult<AuthorizationPolicyInfo> Policies { get; set; }
 
     }
