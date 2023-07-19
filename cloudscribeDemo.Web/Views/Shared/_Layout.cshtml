@@ -23,12 +23,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @RenderSection("Meta", required: false)
     <environment names="Development">
-        <link rel="stylesheet" href="~/css/bootstrap4.css"  />
+        <link rel="stylesheet" href="~/css/bootstrap.css"  />
         <link rel="stylesheet" href="~/css/fontawesome-all.min.css"  />
         <link rel="stylesheet" href="~/css/site.css"  />
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/css/bootstrap4.min.css"  />
+        <link rel="stylesheet" href="~/css/bootstrap.min.css"  />
         <link rel="stylesheet" href="~/css/fontawesome-all.min.css"  />
         <link rel="stylesheet" href="~/css/site.min.css"  />
     </environment>
@@ -49,13 +49,13 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                @await Component.InvokeAsync("Navigation", new { viewName = "Bootstrap4TopNavWithDropdowns", filterName = NamedNavigationFilters.TopNav, startingNodeKey = "" })
+                @await Component.InvokeAsync("Navigation", new { viewName = "Bootstrap5TopNavWithDropdowns", filterName = NamedNavigationFilters.TopNav, startingNodeKey = "" })
                 @await Html.PartialAsync("_LoginPartialWithDropdowns")
             </div>
         </nav>
     </header>
     <div id="wrapper" class="container-fluid cs-container flex-fill">
-        @await Component.InvokeAsync("Navigation", new { viewName = "Bootstrap4Breadcrumbs", filterName = NamedNavigationFilters.Breadcrumbs, startingNodeKey = "" })
+        @await Component.InvokeAsync("Navigation", new { viewName = "Bootstrap5Breadcrumbs", filterName = NamedNavigationFilters.Breadcrumbs, startingNodeKey = "" })
         <div class="row">
             <main id="content" role="main" class="col order-3">
                 @await Html.PartialAsync("AlertsPartial")
