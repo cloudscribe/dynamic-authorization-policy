@@ -29,7 +29,7 @@ namespace cloudscribe.DynamicPolicy.Storage.NoDb
         private IBasicQueries<AuthorizationPolicyInfo> _policyQueries;
         private PolicyCache _cache;
 
-        private async Task<List<AuthorizationPolicyInfo>> GetAll(
+        public async Task<List<AuthorizationPolicyInfo>> GetAll(
             string tenantId,
             CancellationToken cancellationToken = default(CancellationToken)
             )
