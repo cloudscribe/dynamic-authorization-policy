@@ -1,5 +1,6 @@
 ﻿using cloudscribe.Pagination.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,5 +25,9 @@ namespace cloudscribe.DynamicPolicy.Models
             int pageSize,
             CancellationToken cancellationToken = default(CancellationToken));
 
+        Task<List<AuthorizationPolicyInfo>> GetAll(
+            string tenantId,
+            CancellationToken cancellationToken = default(CancellationToken)
+            );
     }
 }

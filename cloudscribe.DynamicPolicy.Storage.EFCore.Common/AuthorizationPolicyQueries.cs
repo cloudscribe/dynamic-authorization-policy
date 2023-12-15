@@ -23,7 +23,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
         private readonly IDynamicPolicyDbContextFactory _contextFactory;
         private PolicyCache _cache;
 
-        private async Task<List<AuthorizationPolicyInfo>> GetAll(
+        public async Task<List<AuthorizationPolicyInfo>> GetAll(
             string tenantId,
             CancellationToken cancellationToken = default(CancellationToken)
             )
@@ -52,9 +52,6 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
 
                 return list;
             }
-
-               
-
         }
 
         public async Task<AuthorizationPolicyInfo> Fetch(

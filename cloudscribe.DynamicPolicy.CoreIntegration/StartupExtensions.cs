@@ -18,6 +18,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IRoleSelectorProperties, SiteRoleSelectorProperties>();
 
             services.AddScoped<IHandleSitePreDelete, SiteDeleteHandler>();
+            services.AddScoped<IHandleSiteCloned, SiteCloneHandler>();
             services.AddScoped<IGuardNeededRoles, AuthPolicyRoleGuard>();
             
 
