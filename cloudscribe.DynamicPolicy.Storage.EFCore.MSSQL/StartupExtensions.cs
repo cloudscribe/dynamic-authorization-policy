@@ -16,7 +16,6 @@ namespace Microsoft.Extensions.DependencyInjection
             int maxConnectionRetryCount = 0,
             int maxConnectionRetryDelaySeconds = 30,
             ICollection<int> transientSqlErrorNumbersToAdd = null
-            // bool useSql2008Compatibility = false
             )
         {
             

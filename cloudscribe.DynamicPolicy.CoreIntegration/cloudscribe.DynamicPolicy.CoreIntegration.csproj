@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>cloudscribe Core integration for Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>6.0.1</Version>
-    <TargetFramework>net6.0</TargetFramework>
+    <Version>8.0.0</Version>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
@@ -16,17 +16,15 @@
     <None Include="icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
-
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Core.Models" Version="6.0.5" />
-    <PackageReference Include="cloudscribe.Multitenancy" Version="6.0.0" />
+    <PackageReference Include="cloudscribe.Core.Models" Version="8.0.0" />
+    <PackageReference Include="cloudscribe.Multitenancy" Version="8.0.0" />
     
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
   </ItemGroup>
-
 
   <ItemGroup>
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj" />
