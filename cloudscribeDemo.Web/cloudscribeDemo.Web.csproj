@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <UserSecretsId>cloudscribeDemo.Web-EBE25C92-4443-4147-BC94-2D9B090657A7</UserSecretsId>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
