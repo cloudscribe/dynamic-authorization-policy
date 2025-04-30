@@ -39,8 +39,8 @@
     <PackageReference Include="cloudscribe.Core.Storage.EFCore.PostgreSql" Version="8.1.0" />
     <PackageReference Include="cloudscribe.Core.Storage.EFCore.SQLite" Version="8.1.0" />
 
-    <PackageReference Include="cloudscribe.Core.SimpleContent" Version="8.1.0" />
-    <PackageReference Include="cloudscribe.SimpleContent.Web" Version="8.1.0" />
+    <PackageReference Include="cloudscribe.Core.SimpleContent" Version="8.1.*" />
+    <PackageReference Include="cloudscribe.SimpleContent.Web" Version="8.1.*" />
     <PackageReference Include="cloudscribe.Core.SimpleContent.CompiledViews.Bootstrap5" Version="8.1.0" />
     <PackageReference Include="cloudscribe.SimpleContent.CompiledViews.Bootstrap5" Version="8.1.0" />
     <PackageReference Include="cloudscribe.SimpleContent.MetaWeblog" Version="8.1.0" />
