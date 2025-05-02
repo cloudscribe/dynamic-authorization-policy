@@ -13,7 +13,7 @@
 
 
 # Define the directory containing the .csproj files
-$directory = "src"
+$directory = "./"    # DIFFERENT in this Repo !!!!
 
 # Define the old & new versions
 $oldVersion = '8\.1'   # slash needed !
