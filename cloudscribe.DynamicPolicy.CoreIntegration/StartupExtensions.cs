@@ -2,6 +2,7 @@
 using cloudscribe.Core.Models.EventHandlers;
 using cloudscribe.DynamicPolicy.CoreIntegration;
 using cloudscribe.DynamicPolicy.Models;
+using cloudscribe.Versioning;
 using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -16,7 +17,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<ITenantIdProvider, TenantIdProvider>();
 
             services.AddScoped<IRoleSelectorProperties, SiteRoleSelectorProperties>();
-
+            services.AddScoped<IVersionProvider, VersionProvider>();
             services.AddScoped<IHandleSitePreDelete, SiteDeleteHandler>();
             services.AddScoped<IHandleSiteCloned, SiteCloneHandler>();
             services.AddScoped<IGuardNeededRoles, AuthPolicyRoleGuard>();
