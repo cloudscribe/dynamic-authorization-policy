@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>MSSQL Entity Framework Core implementation of commands and queries for Dynamic Authorization Policies for ASP.NET Core</Description>
-    <Version>8.3.0</Version>
+    <Version>8.4.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Versioning" Version="8.3.0" />
+    <PackageReference Include="cloudscribe.Versioning" Version="8.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
   </ItemGroup>
