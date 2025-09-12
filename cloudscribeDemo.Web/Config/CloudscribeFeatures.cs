@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using cloudscribe.Versioning;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
@@ -122,7 +123,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddCloudscribeCoreIntegrationForSimpleContent(config);
             services.AddSimpleContentMvc(config);
             services.AddContentTemplatesForSimpleContent(config);
-
+            services.AddScoped<IVersionProvider, cloudscribe.DynamicPolicy.Web.Views.Bootstrap5.VersionProvider>();
             services.AddMetaWeblogForSimpleContent(config.GetSection("MetaWeblogApiOptions"));
             services.AddSimpleContentRssSyndiction();
 
