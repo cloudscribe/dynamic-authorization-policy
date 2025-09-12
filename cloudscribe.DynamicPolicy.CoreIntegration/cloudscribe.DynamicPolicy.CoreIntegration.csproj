@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>cloudscribe Core integration for Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>8.2.0</Version>
+    <Version>8.5.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
@@ -10,15 +10,20 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cloudscribe/dynamic-authorization-policy.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Core.Models" Version="8.2.0" />
-    <PackageReference Include="cloudscribe.Multitenancy" Version="8.2.0" />
+    <PackageReference Include="cloudscribe.Core.Models" Version="8.5.0" />
+    <PackageReference Include="cloudscribe.Multitenancy" Version="8.5.0" />
     
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />

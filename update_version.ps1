@@ -16,9 +16,9 @@
 $directory = "./"    # DIFFERENT in this Repo !!!!
 
 # Define the old & new versions
-$oldVersion = '8\.1'   # slash needed !
-$newVersion = "8.2.0"
-$newWildcardVersion = "8.2.*"
+$oldVersion = '8\.4'   # slash needed !
+$newVersion = "8.5.0"
+$newWildcardVersion = "8.5.*"
 	
 
 # Get all .csproj files in the directory and subdirectories
