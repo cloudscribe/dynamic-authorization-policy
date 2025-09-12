@@ -17,7 +17,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<ITenantIdProvider, TenantIdProvider>();
 
             services.AddScoped<IRoleSelectorProperties, SiteRoleSelectorProperties>();
-            services.AddScoped<IVersionProvider, VersionProvider>();
+            services.AddScoped<IVersionProvider, cloudscribe.DynamicPolicy.CoreIntegration.VersionProvider>();
             services.AddScoped<IHandleSitePreDelete, SiteDeleteHandler>();
             services.AddScoped<IHandleSiteCloned, SiteCloneHandler>();
             services.AddScoped<IGuardNeededRoles, AuthPolicyRoleGuard>();
