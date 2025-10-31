@@ -20,6 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IVersionProvider, cloudscribe.DynamicPolicy.CoreIntegration.VersionProvider>();
             services.AddScoped<IHandleSitePreDelete, SiteDeleteHandler>();
             services.AddScoped<IHandleSiteCloned, SiteCloneHandler>();
+            services.AddScoped<IHandleRoleCopied, RoleCopiedHandler>();
             services.AddScoped<IGuardNeededRoles, AuthPolicyRoleGuard>();
             
 
