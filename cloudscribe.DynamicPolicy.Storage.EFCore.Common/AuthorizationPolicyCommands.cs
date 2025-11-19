@@ -142,7 +142,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             {
                 if (entity.RequiredClaims.Count > 0)
                 {
-                    for (int i = 0; i < entity.RequiredClaims.Count; i++)
+                    for (int i = entity.RequiredClaims.Count - 1; i >= 0; i--)
                     {
                         if (!requiredClaims.HasClaim(entity.RequiredClaims[i].ClaimName))
                         {
@@ -192,7 +192,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             {
                 if (entity.AllowedValues.Count > 0)
                 {
-                    for (int i = 0; i < entity.AllowedValues.Count; i++)
+                    for (int i = entity.AllowedValues.Count - 1; i >= 0; i--)
                     {
                         if (!claim.AllowedValues.Contains(entity.AllowedValues[i].AllowedValue))
                         {
@@ -235,7 +235,7 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             {
                 if (entity.AuthenticationSchemes.Count > 0)
                 {
-                    for (int i = 0; i < entity.AuthenticationSchemes.Count; i++)
+                    for (int i = entity.AuthenticationSchemes.Count - 1; i >= 0; i--)
                     {
                         if (!authSchemeStrings.Contains(entity.AuthenticationSchemes[i].AuthenticationScheme))
                         {
@@ -276,13 +276,14 @@ namespace cloudscribe.DynamicPolicy.Storage.EFCore.Common
             {
                 if (entity.AllowedRoles.Count > 0)
                 {
-                    for (int i = 0; i < entity.AllowedRoles.Count; i++)
+                    // go backwards to avoid classic removal index issues,
+                    // changing what you are supposed to be looping through
+                    for (int i = entity.AllowedRoles.Count - 1; i >= 0; i--)
                     {
                         if (!allowedRoleStrings.Contains(entity.AllowedRoles[i].AllowedRole))
                         {
                             db.AllowedRoles.Remove(entity.AllowedRoles[i]);
                             entity.AllowedRoles.RemoveAt(i);
-                            
                         }
                     }
                 }
