@@ -1,7 +1,10 @@
 ﻿@model cloudscribe.DynamicPolicy.Web.Mvc.ViewModels.PolicyListViewModel
 @inject IStringLocalizer<PolicyResources> sr
+@inject IRoleSelectorProperties roleSelector
+@inject cloudscribe.DynamicPolicy.Models.ITenantIdProvider tenantIdProvider
 @{
     ViewData["Title"] = sr["Authorization Policies"];
+    var tenantId = tenantIdProvider.GetTenantId();
 }
 
 @functions{
@@ -47,22 +50,48 @@
 <h2>@ViewData["Title"]</h2>
 
 <form class="form-inline mb-3" role="form" asp-controller="PolicyManagement" asp-action="Index" method="get" asp-antiforgery="false">
-    <div class="row align-items-left mt-1 mb-1 gx-0">
-        <div class="col-2 w-auto align-self-center">
-            <input asp-for="Q" name="q" class="form-control mb-1" />
+    
+    <div class="row align-items-center mt-1 mb-2 gx-2">
+        <div class="col-12 col-sm-2 w-auto align-self-center">
+            <label asp-for="Q" class="visually-hidden">@sr["Search by policy name"]</label>
+            <input asp-for="Q" name="q" class="form-control mb-1" placeholder="@sr["Search by name"]" />
         </div>
 
-        <div class="col-3 w-auto align-self-center">
-            <button type="submit" value='@sr["Search"]' class="btn btn-primary me-4 mb-1">@sr["Search"]</button>
+        <div class="col-7 col-sm-3 align-self-center">
+            <label for="FilterRolesCsv" class="visually-hidden">@sr["Search by roles"]</label>
+            <input asp-for="FilterRolesCsv" name="roles" class="form-control mb-1" id="FilterRolesCsv" placeholder="@sr["Search by roles"]" />
         </div>
 
-
-        <div class="col-3 w-auto align-self-center">
-            <a class="btn btn-outline-primary mb-1" asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New"]</a>
+        <div class="col-5 col-sm-auto align-self-center">
+            <a class="btn btn-secondary mb-1"
+               cdp-role-selector="@roleSelector"
+               cdp-tenant-id="@tenantId"
+               cdp-target-id="FilterRolesCsv">@sr["Select Roles"]</a>
         </div>
-
     </div>
 
+    <div class="row align-items-left mt-1 mb-3 gx-2">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">@sr["Search"]</button>
+        </div>
+
+        <div class="col-auto">
+            <a class="btn btn-outline-secondary" asp-controller="PolicyManagement" asp-action="Index">@sr["Clear Search Filters"]</a>
+        </div>
+
+        <div class="col-auto mt-2 mt-sm-0">
+            <a class="btn btn-outline-primary" asp-controller="PolicyManagement" asp-action="NewPolicy">@sr["Create New Policy"]</a>
+        </div>
+    </div>
+
+@if (Model.Policies.Data.Count == 0)
+{
+    <div class="alert alert-info">
+        @sr["No policies found. Try clearing filters."]
+    </div>
+}
+else
+{
 <table class="table table-striped mb-2">
     <thead>
         <tr>
@@ -99,9 +128,11 @@
         }
     </tbody>
 </table>
+}
 
 <cs-pager asp-action                   ="Index" asp-controller="PolicyManagement"
           asp-route-q                  ="@Model.Q"
+          asp-route-roles              ="@Model.FilterRolesCsv"
           asp-route-pagesize           ="@Model.Policies.PageSize"
           cs-paging-pagesize           ="@Model.Policies.PageSize"
           cs-paging-pagenumber         ="@Model.Policies.PageNumber"
@@ -129,4 +160,14 @@
             <button id="btnSearch" name="command" value="search" type="submit" class="btn btn-primary me-1">@sr["Apply"]</button>
         </div>
     </div>
-    </form>
+</form>
+
+@section Scripts {
+    @if (roleSelector.RequiredScriptPaths != null)
+    {
+        foreach (var s in roleSelector.RequiredScriptPaths)
+        {
+            <script src="@Url.Content(s)"></script>
+        }
+    }
+}

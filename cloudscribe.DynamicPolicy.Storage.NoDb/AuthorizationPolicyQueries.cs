@@ -81,6 +81,7 @@ namespace cloudscribe.DynamicPolicy.Storage.NoDb
             string searchQuery,
             int pageNumber,
             int pageSize,
+            string filterRoles = null,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -91,8 +92,24 @@ namespace cloudscribe.DynamicPolicy.Storage.NoDb
 
             if (searchQuery == null) { searchQuery = string.Empty; }
 
+            // Parse role filters
+            List<string> roleFilters = null;
+            if (!string.IsNullOrWhiteSpace(filterRoles))
+            {
+                roleFilters = filterRoles.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                          .Select(r => r.Trim())
+                                          .ToList();
+            }
+
+            // Apply text search filter
             var query = all.AsQueryable()
                .Where(x => searchQuery == string.Empty || x.Name.Contains(searchQuery, StringComparison.InvariantCultureIgnoreCase));
+
+            // Apply role filter (OR logic - policy must have ANY of the selected roles)
+            if (roleFilters != null && roleFilters.Count > 0)
+            {
+                query = query.Where(x => x.AllowedRoles.Any(r => roleFilters.Contains(r)));
+            }
 
             var result = new PagedResult<AuthorizationPolicyInfo>
             {
