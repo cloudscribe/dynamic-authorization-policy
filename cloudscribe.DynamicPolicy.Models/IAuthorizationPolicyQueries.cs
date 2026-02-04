@@ -23,6 +23,7 @@ namespace cloudscribe.DynamicPolicy.Models
             string searchQuery,
             int pageNumber,
             int pageSize,
+            string filterRoles = null,
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task<List<AuthorizationPolicyInfo>> GetAll(
