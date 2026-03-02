@@ -53,10 +53,11 @@ namespace cloudscribe.DynamicPolicy.Services
             string query = null,
             int pageNumber = 1,
             int pageSize = 20,
+            string filterRoles = null,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             cancellationToken.ThrowIfCancellationRequested();
-            var result = await _queries.GetPage(_tenantProvider.GetTenantId(), query, pageNumber, pageSize, cancellationToken).ConfigureAwait(false);
+            var result = await _queries.GetPage(_tenantProvider.GetTenantId(), query, pageNumber, pageSize, filterRoles, cancellationToken).ConfigureAwait(false);
             
             return result;
 

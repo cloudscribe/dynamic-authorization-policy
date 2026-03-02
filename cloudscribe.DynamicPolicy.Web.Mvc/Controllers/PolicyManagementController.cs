@@ -40,18 +40,21 @@ namespace cloudscribe.DynamicPolicy.Web.Mvc.Controllers
         public async Task<IActionResult> Index(
             CancellationToken cancellationToken, 
             string q = null,
+            string roles = null,
             int pageNumber = 1, 
             int pageSize = 20)
         {
             var model = new PolicyListViewModel()
             {
                 Q = q,
+                FilterRolesCsv = roles,
                 PageSize = pageSize
             };
             model.Policies = await _service.GetPageOfPolicies(
                 q,
                 pageNumber, 
-                pageSize, 
+                pageSize,
+                roles,
                 cancellationToken);
 
             return View(model);
