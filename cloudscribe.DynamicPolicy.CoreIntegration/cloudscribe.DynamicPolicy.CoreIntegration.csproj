@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>cloudscribe Core integration for Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>8.7.0</Version>
+    <Version>8.8.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Core.Models" Version="8.7.0" />
-    <PackageReference Include="cloudscribe.Multitenancy" Version="8.7.0" />
+    <PackageReference Include="cloudscribe.Core.Models" Version="8.8.0" />
+    <PackageReference Include="cloudscribe.Multitenancy" Version="8.8.0" />
     
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
