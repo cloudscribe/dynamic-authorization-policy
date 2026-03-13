@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Dynamic Authorization Policy Services for ASP.NET Core</Description>
-    <Version>8.8.0</Version>
-    <TargetFramework>net8.0</TargetFramework>
+    <Version>10.0.0</Version>
+    <TargetFramework>net10.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
@@ -26,12 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Versioning" Version="8.8.0" />
+    <PackageReference Include="cloudscribe.Versioning" Version="10.0.0" />
 
-    <PackageReference Include="cloudscribe.Web.Common" Version="8.8.0" />
-    <PackageReference Include="cloudscribe.Web.Pagination" Version="8.8.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="cloudscribe.Web.Common" Version="10.0.0" />
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
+    
   </ItemGroup>
  
   <ItemGroup>
