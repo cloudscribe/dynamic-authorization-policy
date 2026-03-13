@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36930.0 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Models", "cloudscribe.DynamicPolicy.Models\cloudscribe.DynamicPolicy.Models.csproj", "{1DBBA9C2-6130-40AE-B141-2FDE719C45C5}"
 EndProject
@@ -17,13 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Mvc", "cloudscribe.DynamicPolicy.Web.Mvc\cloudscribe.DynamicPolicy.Web.Mvc.csproj", "{19A8AAE3-1057-41D6-8FF3-F69584350871}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Views.Bootstrap3", "cloudscribe.DynamicPolicy.Web.Views.Bootstrap3\cloudscribe.DynamicPolicy.Web.Views.Bootstrap3.csproj", "{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Storage.NoDb", "cloudscribe.DynamicPolicy.Storage.NoDb\cloudscribe.DynamicPolicy.Storage.NoDb.csproj", "{229D5892-7B92-49D3-A143-54EF952532A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicAuthPolicyDemo.Web", "DynamicAuthPolicyDemo.Web\DynamicAuthPolicyDemo.Web.csproj", "{3071C651-7596-4478-8E71-79DD12B8E1DC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribe.DynamicPolicy.Web.Views.Bootstrap4", "cloudscribe.DynamicPolicy.Web.Views.Bootstrap4\cloudscribe.DynamicPolicy.Web.Views.Bootstrap4.csproj", "{38673275-257B-4236-95D5-FC1B78E7B032}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cloudscribeDemo.Web", "cloudscribeDemo.Web\cloudscribeDemo.Web.csproj", "{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}"
 EndProject
@@ -65,10 +61,6 @@ Global
 		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A8AAE3-1057-41D6-8FF3-F69584350871}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2B6FBE6-2051-430A-82AA-A1B586C1A8B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{229D5892-7B92-49D3-A143-54EF952532A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{229D5892-7B92-49D3-A143-54EF952532A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{229D5892-7B92-49D3-A143-54EF952532A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,10 +69,6 @@ Global
 		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3071C651-7596-4478-8E71-79DD12B8E1DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38673275-257B-4236-95D5-FC1B78E7B032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38673275-257B-4236-95D5-FC1B78E7B032}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38673275-257B-4236-95D5-FC1B78E7B032}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38673275-257B-4236-95D5-FC1B78E7B032}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF79EB62-45A2-41B7-A8EB-194FDA9F9B17}.Release|Any CPU.ActiveCfg = Release|Any CPU

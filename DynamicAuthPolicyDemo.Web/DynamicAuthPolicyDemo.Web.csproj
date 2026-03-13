@@ -15,7 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Storage.NoDb\cloudscribe.DynamicPolicy.Storage.NoDb.csproj" />
     <ProjectReference Include="..\cloudscribe.DynamicPolicy.Web.Mvc\cloudscribe.DynamicPolicy.Web.Mvc.csproj" />
-    <ProjectReference Include="..\cloudscribe.DynamicPolicy.Web.Views.Bootstrap3\cloudscribe.DynamicPolicy.Web.Views.Bootstrap3.csproj" />
   </ItemGroup>
 
 </Project>
