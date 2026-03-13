@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>model classes for Dynamic Authorization Policy for ASP.NET Core</Description>
-    <Version>8.8.0</Version>
-    <TargetFramework>net8.0</TargetFramework>
+    <Version>10.0.0</Version>
+    <TargetFramework>net10.0</TargetFramework>
     <Authors>Joe Audette</Authors>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/cloudscribe/dynamic-authorization-policy</PackageProjectUrl>
@@ -22,10 +22,22 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="cloudscribe.Pagination.Models" Version="8.8.0" />
+    <PackageReference Include="cloudscribe.Pagination.Models" Version="10.0.0" />
 
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.0" />
+
+    <!-- JK:  Net10 - dealing with persistent security vuln warnings: -->
+
+    <!-- Security vulnerability fixes - must match versions in Core/Logging repos -->
+    <!-- GHSA-ghhp-997w-qr28: Critical vulnerability in System.Text.Encodings.Web < 4.5.1 -->
+    <PackageReference Include="System.Text.Encodings.Web" Version="10.0.0" />
+    <!-- GHSA-5crp-9r3c-p9vr: High severity vulnerability in Newtonsoft.Json < 13.0.1 -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- GHSA-cmhx-cq75-c4mj: High severity vulnerability in System.Text.RegularExpressions < 4.3.1 -->
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <!-- GHSA-7jgj-8wvc-jh57: High severity vulnerability in System.Net.Http < 4.3.4 -->
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
 </Project>
