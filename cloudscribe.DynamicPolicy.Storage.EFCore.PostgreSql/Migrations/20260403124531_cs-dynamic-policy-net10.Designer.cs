@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql;
@@ -11,9 +12,11 @@ using cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql;
 namespace cloudscribe.DynamicPolicy.Storage.EFCore.PostgreSql.Migrations
 {
     [DbContext(typeof(DynamicPolicyDbContext))]
-    partial class DynamicPolicyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260403124531_cs-dynamic-policy-net10")]
+    partial class csdynamicpolicynet10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
